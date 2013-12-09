@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe "Storify::Client -- Authentication" do
-  before(:all) do
+  before(:each) do
     @client = Storify::Client.new(@api_key, @username)
   end
 
   it "should retrieve an auth token on success" do
+
     @client.auth(get_password).token.should_not be_nil
     @client.authenticated.should be_true
   end

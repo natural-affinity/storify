@@ -6,4 +6,10 @@ describe Storify::Client do
     @client.auth(get_password)
   end
 
+  it "should get the first page of a users stories" do
+    @client.stories(:world => false).deserialize.should_not be_nil
+  end
+
+  it "should get a specific "
+
 end

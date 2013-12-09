@@ -12,6 +12,18 @@ module Storify
   def self.auth
     versioned_api << "/auth"
   end
+
+  def self.stories
+    versioned_api << "/stories"
+  end
+
+  def self.userstories(username)
+    stories << "/#{username}"
+  end
+
+  def self.story(username, slug)
+    userstories(username) << "/#{slug}"
+  end
 end
 
 require 'storify/client'
