@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'storify'
   s.version     = '0.0.3'
-  s.date        = '2013-12-10'
+  s.date        = '2013-12-09'
   s.summary     = 'Storify API'
   s.description = 'Ruby Implementation of Storify API'
   s.authors     = ['Rizwan Tejpar']
