@@ -9,4 +9,7 @@ Gem::Specification.new do |s|
   s.files       = ['lib/storify.rb']
   s.homepage    = 'http://rubygems.org/gems/storify'
   s.license     = 'MIT'
+
+  s.add_development_dependency 'rspec', '>=2.14.1'
+  s.test_files = Dir.glob('spec/*.rb')
 end
