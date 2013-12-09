@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-RestClient.log = './restclient.log'    
+#RestClient.log = './restclient.log'    
 
 class Storify::Client
   attr_reader :api_key, :username, :token, :raw
