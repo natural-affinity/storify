@@ -3,10 +3,10 @@ Gem::Specification.new do |s|
   s.version     = '0.0.3'
   s.date        = '2013-12-09'
   s.summary     = 'Storify API'
-  s.description = 'Ruby Wrapper of Storify REST API'
+  s.description = 'Ruby Wrapper of Storify REST API -- work-in-progress'
   s.authors     = ['Rizwan Tejpar']
   s.email       = 'rtejpar@gmail.com' 
-  s.homepage    = 'http://rubygems.org/gems/storify'
+  s.homepage    = 'https://github.com/natural-affinity/storify'
   s.license     = 'MIT'  
   s.files       = Dir.glob('lib/**/*.rb')
   s.test_files  = Dir.glob('spec/*.rb')
