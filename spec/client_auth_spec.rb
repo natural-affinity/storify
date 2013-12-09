@@ -7,6 +7,7 @@ describe "Storify::Client -- Authentication" do
 
   it "should retrieve an auth token on success" do
     @client.auth(get_password).token.should_not be_nil
+    @client.authenticated.should be_true
   end
 
   it "should raise an API error on failure" do

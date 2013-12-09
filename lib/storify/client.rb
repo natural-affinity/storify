@@ -27,4 +27,8 @@ class Storify::Client
 
     self
   end
+
+  def authenticated
+    !@token.nil?
+  end
 end
