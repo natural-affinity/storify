@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version     = '0.0.3'
   s.date        = '2013-12-09'
   s.summary     = 'Storify API'
-  s.description = 'Ruby Implementation of Storify API'
+  s.description = 'Ruby Wrapper of Storify REST API'
   s.authors     = ['Rizwan Tejpar']
   s.email       = 'rtejpar@gmail.com' 
   s.homepage    = 'http://rubygems.org/gems/storify'
