@@ -3,7 +3,7 @@ require 'rest-client'
 #RestClient.log = './restclient.log'    
 
 class Storify::Client
-  attr_reader :api_key, :username, :token, :raw
+  attr_reader :api_key, :username, :token
 
   def initialize(api_key, username)
     @api_key = api_key
@@ -18,29 +18,62 @@ class Storify::Client
     self
   end
 
-  def stories(slug: nil, world: false)
-    # filter from general to specific
-    endpoint = Storify::stories if world
-    endpoint = Storify::userstories(@username) unless world
-    endpoint = Storify::story(@username, slug) unless slug.nil?
-    call(endpoint, :GET)
+  def userstories(username = @username)
+    endpoint = Storify::userstories(username)
+    pager = add_pagination
+    stories = []
 
-    self
+    while data = call(endpoint, :GET, pager)
+      content = data['content']
+      break if content['stories'].length == 0
+
+      content['stories'].each do |s|
+        stories << Storify::Story.new(s)
+      end
+
+      pager[:page] += 1
+    end
+
+    stories
+  end
+
+  def story(slug, username = @username)
+    endpoint = Storify::story(username, slug)
+    pager = add_pagination
+    story = nil
+    elements = []
+
+    while data = call(endpoint, :GET, pager)
+      story = Storify::Story.new(data['content']) if story.nil?
+      break if data['content']['elements'].length == 0
+
+      # create elements
+      data['content']['elements'].each do |e|
+        story.add_element(Storify::Element.new(e))
+      end
+
+      pager[:page] += 1
+    end
+
+    story
   end
 
   def authenticated
     !@token.nil?
   end
 
-  def deserialize
-    JSON.parse(@raw)
+  def add_pagination(page = 1, per_page = 20)
+    params = {}
+    params[:page] = page
+    params[:per_page] = per_page
+    params
   end
 
 
-  private 
-  
+  private
+
   def call(endpoint, verb, params = {}, opts = {})
-    @raw = nil
+    raw = nil
 
     begin
       # inject auth params automatically (if available)
@@ -50,18 +83,18 @@ class Storify::Client
 
       case verb
       when :POST
-        @raw = RestClient.post endpoint, params, {:accept => :json}
-      else
-        @raw = RestClient.get endpoint, {:params => params}
+        raw = RestClient.post endpoint, params, {:accept => :json}
+      when :GET
+        raw = RestClient.get endpoint, {:params => params}
       end
     rescue => e
-      @raw = e.response
+      raw = e.response
       
       data = JSON.parse(e.response)
       error = data['error']
       raise Storify::ApiError.new(data['code'], error['message'], error['type']) 
     end
 
-    deserialize
+    JSON.parse(raw)
   end
 end

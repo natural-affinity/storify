@@ -26,5 +26,7 @@ module Storify
   end
 end
 
+require 'storify/story'
 require 'storify/client'
+require 'storify/element'
 require 'storify/apierror'
