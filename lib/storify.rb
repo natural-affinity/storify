@@ -1,28 +1,30 @@
 module Storify
-  BASE_URL = 'https://api.storify.com'
+  PROTOCOLS = {
+    :secure => 'https://',
+    :insecure => 'http://'
+  }
 
-  def self.api(secure = true)
-    (secure ? 'https' : 'http') + '://api.storify.com'
-  end
+  ENDPOINTS = {
+    :v1 => {
+      :base => 'api.storify.com/v1',
+      :auth => '/auth',
+      :userstories => '/stories/:username',
+      :userstory => '/stories/:username/:slug'
+    }
+  }
 
-  def self.versioned_api(secure: true, version: 1)
-    api(secure) << "/v#{version}"
-  end
+  # Set protocol and endpoint defaults
+  PROTOCOLS.default = PROTOCOLS[:secure]
+  ENDPOINTS.default = ENDPOINTS[:v1]
+  ENDPOINTS[:v1].default = ENDPOINTS[:v1][:base]
 
-  def self.auth
-    versioned_api << "/auth"
-  end
+  def self.endpoint(version: :v1, protocol: :secure, method: :base, params: {})
+    uri = (method == :auth) ? PROTOCOLS[:secure] : PROTOCOLS[protocol]
+    uri += ENDPOINTS[version][:base]
+    uri += ENDPOINTS[version][method]
+    params.each_pair {|k,v| uri = uri.gsub(k,v) }
 
-  def self.stories
-    versioned_api << "/stories"
-  end
-
-  def self.userstories(username)
-    stories << "/#{username}"
-  end
-
-  def self.story(username, slug)
-    userstories(username) << "/#{slug}"
+    uri
   end
 end
 

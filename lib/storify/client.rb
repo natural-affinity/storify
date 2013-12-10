@@ -11,7 +11,7 @@ class Storify::Client
   end
 
   def auth(password)
-    endpoint = Storify::auth
+    endpoint = Storify::endpoint(method: :auth)
     data = call(endpoint, :POST, {password: password})
     @token = data['content']['_token']
 
@@ -19,7 +19,8 @@ class Storify::Client
   end
 
   def userstories(username = @username)
-    endpoint = Storify::userstories(username)
+    params = {':username' => username}
+    endpoint = Storify::endpoint(method: :userstories, params: params)
     pager = add_pagination
     stories = []
 
@@ -38,7 +39,8 @@ class Storify::Client
   end
 
   def story(slug, username = @username)
-    endpoint = Storify::story(username, slug)
+    params = {':username' => username, ':slug' => slug}
+    endpoint = Storify::endpoint(method: :userstory, params: params)
     pager = add_pagination
     story = nil
     elements = []

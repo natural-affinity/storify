@@ -1,3 +1,4 @@
 *.gem
 *.log
 .userkey.rb
+test.rb
