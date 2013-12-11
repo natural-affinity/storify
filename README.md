@@ -67,7 +67,7 @@ For any of the supported methods, you can now specify the API version, and
 protocol (http/https) at runtime.  Similarly, you can also specify paging options for supported methods.  
 
 
-Retrieve a story using http instead of https by default:
+Retrieve a story using v1 of the API and http instead of https by default:
 ```ruby
 options = {:version => :v1, :protocol => :insecure}
 story = client.story('slug','user', options: options)
