@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-#RestClient.log = './restclient.log'    
+#RestClient.log = './restclient.log'
 
 class Storify::Client
   attr_reader :api_key, :username, :token
@@ -10,17 +10,20 @@ class Storify::Client
     @username = username
   end
 
-  def auth(password)
-    endpoint = Storify::endpoint(method: :auth)
+  def auth(password, options: {})
+    endpoint = Storify::endpoint(version: options[:version], method: :auth)
     data = call(endpoint, :POST, {password: password})
     @token = data['content']['_token']
 
     self
   end
 
-  def userstories(username = @username)
-    params = {':username' => username}
-    endpoint = Storify::endpoint(method: :userstories, params: params)
+  def userstories(username = @username, options: {})
+    endpoint = Storify::endpoint(version: options[:version],
+                                 protocol: options[:protocol],
+                                 method: :userstories,
+                                 params: {':username' => username})
+
     pager = add_pagination
     stories = []
 
@@ -38,9 +41,12 @@ class Storify::Client
     stories
   end
 
-  def story(slug, username = @username)
+  def story(slug, username = @username, options: {})
     params = {':username' => username, ':slug' => slug}
-    endpoint = Storify::endpoint(method: :userstory, params: params)
+    endpoint = Storify::endpoint(version: options[:version],
+                                 protocol: options[:protocol],
+                                 method: :userstory,
+                                 params: params)
     pager = add_pagination
     story = nil
     elements = []
@@ -91,10 +97,10 @@ class Storify::Client
       end
     rescue => e
       raw = e.response
-      
+
       data = JSON.parse(e.response)
       error = data['error']
-      raise Storify::ApiError.new(data['code'], error['message'], error['type']) 
+      raise Storify::ApiError.new(data['code'], error['message'], error['type'])
     end
 
     JSON.parse(raw)

@@ -9,12 +9,26 @@ describe Storify::Client do
     @story = STDIN.gets.chomp
   end
 
-  it "should get all stories for a specific user" do
-    @client.userstories(@username).length.should == 2
+  context "GET /stories/:username" do
+    it "should get all stories for a specific user" do
+      @client.userstories(@username).length.should == 2
+    end
+
+    it "should accept endpoint options (version, protocol)" do
+      options = {:version => :v1, :protocol => :insecure}
+      @client.userstories(@username, options: options).length.should == 2
+    end
   end
 
-  it "should get a specific story for a user (all pages)" do
-    @client.story(@story).elements.length.should == 3
+  context "GET /stories/:username/:slug" do
+    it "should get a specific story for a user (all pages)" do
+      @client.story(@story).elements.length.should == 3
+    end
+
+    it "should accept endpoint options (version, protocol)" do
+      options = {:version => :v1, :protocol => :insecure}
+      @client.story(@story, options: options).elements.length.should == 3
+    end
   end
 
   it "should allow a story to be serialized as text" do
