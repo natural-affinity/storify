@@ -48,9 +48,6 @@ client = Storify::Client.new('<api_key>', '<username>')
 
 Authenticate your client application (password required):
 ```ruby
-require 'storify'
-
-client = Storify::Client.new('<api_key>', '<username>')
 client.auth('<password>')
 ```
 
@@ -67,15 +64,14 @@ story = client.story('<story slug>','<any username>')
 ### API Options
 
 For any of the supported methods, you can now specify the API version, and
-protocol (http/https) at runtime.  
+protocol (http/https) at runtime.  Similarly, you can also specify paging options for supported methods.  
+
 
 Retrieve a story using http instead of https by default:
 ```ruby
 options = {:version => :v1, :protocol => :insecure}
 story = client.story('slug','user', options: options)
 ```
-
-Similarly, you can also specify paging options for supported methods.  
 
 Retrieve page 3 to the end of the story:
 ```ruby
