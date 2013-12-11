@@ -30,5 +30,6 @@ end
 
 require 'storify/story'
 require 'storify/client'
+require 'storify/pager'
 require 'storify/element'
 require 'storify/apierror'

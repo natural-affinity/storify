@@ -18,63 +18,57 @@ class Storify::Client
     self
   end
 
-  def userstories(username = @username, options: {})
+  def userstories(username = @username, pager: nil, options: {})
     endpoint = Storify::endpoint(version: options[:version],
                                  protocol: options[:protocol],
                                  method: :userstories,
                                  params: {':username' => username})
 
-    pager = add_pagination
+    pager = Storify::Pager.new unless pager.is_a?(Storify::Pager)
     stories = []
 
-    while data = call(endpoint, :GET, pager)
+    begin
+      data = call(endpoint, :GET, pager.to_hash)
       content = data['content']
-      break if content['stories'].length == 0
 
       content['stories'].each do |s|
         stories << Storify::Story.new(s)
       end
 
-      pager[:page] += 1
-    end
+      pager.next
+    end while pager.has_pages?(content['stories'])
 
     stories
   end
 
-  def story(slug, username = @username, options: {})
+  def story(slug, username = @username, pager: nil, options: {})
     params = {':username' => username, ':slug' => slug}
     endpoint = Storify::endpoint(version: options[:version],
                                  protocol: options[:protocol],
                                  method: :userstory,
                                  params: params)
-    pager = add_pagination
+
+    pager = Storify::Pager.new unless pager.is_a?(Storify::Pager)
     story = nil
     elements = []
 
-    while data = call(endpoint, :GET, pager)
+    begin
+      data = call(endpoint, :GET, pager.to_hash)
       story = Storify::Story.new(data['content']) if story.nil?
-      break if data['content']['elements'].length == 0
 
       # create elements
       data['content']['elements'].each do |e|
         story.add_element(Storify::Element.new(e))
       end
 
-      pager[:page] += 1
-    end
+      pager.next
+    end while pager.has_pages?(data['content']['elements'])
 
     story
   end
 
   def authenticated
     !@token.nil?
-  end
-
-  def add_pagination(page = 1, per_page = 20)
-    params = {}
-    params[:page] = page
-    params[:per_page] = per_page
-    params
   end
 
 

@@ -18,8 +18,8 @@ TODO
 
 Usage and documentation
 -----------------------
-To run the tests please ensure you have created a .userkey.rb file in the spec
-directory.  See the .userkey.rb.sample file for details.  
+To run the tests please ensure you have created a .userkey.rb file in the spec directory.  
+See the .userkey.rb.sample file for details.  
 
 Note: The storify API currently requires a password to be entered for 
 authentication. Please ensure you perform this securely (as you do not want it 
@@ -43,8 +43,6 @@ require 'storify'
 
 Create an instance of the client with your Storify API key and username:
 ```ruby
-require 'storify'
-
 client = Storify::Client.new('<api_key>', '<username>')
 ```
 
@@ -65,6 +63,33 @@ Retrieve an entire, specific-story for a user:
 ```ruby
 story = client.story('<story slug>','<any username>')
 ```
+
+### API Options
+
+For any of the supported methods, you can now specify the API version, and
+protocol (http/https) at runtime.  
+
+Retrieve a story using http instead of https by default:
+```ruby
+options = {:version => :v1, :protocol => :insecure}
+story = client.story('slug','user', options: options)
+```
+
+Similarly, you can also specify paging options for supported methods.  
+
+Retrieve page 3 to the end of the story:
+```ruby
+pager = Storify::Pager.new(page: 3)
+story = client.story('slug','user', pager: pager)
+```
+
+Retrieve pages 2-3 (inclusive), 10 pages at a time:
+```ruby
+pager = Storify::Pager.new(page: 2, max: 3, per_page: 10)
+story = client.story('slug','user', pager: pager)
+```
+
+### Rendering Options
 
 Render a text-only version of a particular story (e.g. startup digest):
 ```ruby
