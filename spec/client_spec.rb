@@ -2,11 +2,36 @@ require 'spec_helper'
 
 describe Storify::Client do
   before(:all) do
-    @client = Storify::Client.new(@api_key, @username)
+    @client = Storify::Client.new(:api_key => @api_key, :username => @username)
     @client.auth(get_password)
+  end
 
-    puts "Enter a Story Id for your Account:"
-    @story = STDIN.gets.chomp
+  context ".new" do
+    it "should accept a hash of credentials (api_key, username, token)" do
+      clients = [Storify::Client.new(:api_key => 'k', :username => 'u', :token => 't'),
+                 Storify::Client.new('api_key' => 'k', 'username' => 'u', 'token' => 't')]
+
+      clients.each do |c|
+        c.api_key.should == 'k'
+        c.username.should == 'u'
+        c.token.should == 't'
+      end
+    end
+
+    it "should accept a configuration block of credentials" do
+      client = Storify::Client.new do |config|
+        config.api_key = 'YOUR API KEY'
+        config.username = 'YOUR USERNAME'
+        config.token = 'YOUR AUTH TOKEN'
+      end
+
+      client.api_key.should == 'YOUR API KEY'
+    end
+
+    it "should raise an exception for unknown credentials" do
+      expect {Storify::Client.new(:unknown => 'value')}.to raise_exception
+      expect {Storify::Client.new {|config| config.unknown = ''}}.to raise_exception
+    end
   end
 
   context "GET /stories/:username" do
@@ -27,6 +52,11 @@ describe Storify::Client do
   end
 
   context "GET /stories/:username/:slug" do
+    before(:all) do
+      puts "Enter a Story Id for your Account:"
+      @story = STDIN.gets.chomp
+    end
+
     it "should get a specific story for a user (all pages)" do
       @client.story(@story).elements.length.should == 3
     end

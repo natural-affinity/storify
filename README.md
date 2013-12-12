@@ -1,13 +1,16 @@
-Storify
-=======
-This is a ruby wrapper for the Storify REST-API.  This is a work-in-progress;
-more updates coming soon.
+Storify Ruby Gem
+================
+This is a Ruby interface to the Storify REST-API.
+
+Status
+------
+* Work-in-progress (expect updates)
 
 Prerequisites
 -------------
-* Ruby 2.0.0
-* Dependencies specified in gemspec
-* Storify Developer API Key
+* Ruby 2.0
+* storify.gemspec dependencies
+* Storify developer account and API key
 
 TODO
 ----
@@ -18,10 +21,10 @@ TODO
 
 Usage and documentation
 -----------------------
-To run the tests please ensure you have created a .userkey.rb file in the spec directory.
-See the .userkey.rb.sample file for details.
+To run the tests please ensure you have created a `.userkey.rb` file in the spec
+directory.  See the `.userkey.rb.sample` file for details.
 
-Note: The storify API currently requires a password to be entered for
+Note: The Storify API currently requires a password to be entered for
 authentication. Please ensure you perform this securely (as you do not want it
 to appear in plaintext within your shell profile history or within your script).
 The included specs demonstrate masking a password from shell history.
@@ -41,12 +44,18 @@ Include the 'storify' gem in your script:
 require 'storify'
 ```
 
-Create an instance of the client with your Storify API key and username:
+### Configuration
+
+Pass the `Storify::Client` a configuration block when initialized:
 ```ruby
-client = Storify::Client.new('<api key>', '<username>')
+client = Storify::Client.new do |config|
+  config.username = 'YOUR_USERNAME'
+  config.api_key  = 'YOUR_API_KEY'
+  config.token    = 'YOUR_AUTH_TOKEN (optional)'
+end
 ```
 
-Authenticate your client application (password required):
+Authenticate your client application to receive your `token` (password required):
 ```ruby
 client.auth('<password>')
 ```
@@ -64,6 +73,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/browse/latest`   | `YES`   | `YES`   | `client.latest`      |
 | `GET`   | `/stories/browse/featured` | `YES`   | `YES`   | `client.featured`    |
 | `GET`   | `/stories/browse/popular`  | `YES`   | `YES`   | `client.popular`     |
+
 
 Example: Get a list of stories for a user
 ```ruby
@@ -117,6 +127,7 @@ p = Storify::Pager.new(page: 1, max: 1, per_page: 50)
 story = client.popular('<slug>','<username>', pager: p)
 ```
 
+
 ### Options
 
 For any of the supported methods, you can now specify the API version, and
@@ -127,6 +138,7 @@ Get a story using `version 1` of the API and `http` instead of `https` by defaul
 opts = {:version => :v1, :protocol => :insecure}
 story = client.story('<slug>','<username>', options: opts)
 ```
+
 
 ### Rendering
 

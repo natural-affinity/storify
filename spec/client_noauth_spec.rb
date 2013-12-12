@@ -5,7 +5,7 @@ require 'spec_helper'
 
 describe "Storify::Client -- Unauthenticated" do
   before(:each) do
-    @client = Storify::Client.new(@api_key, @username)
+    @client = Storify::Client.new(:api_key => @api_key, :username => @username)
     @options = {:version => :v1, :protocol => :insecure}
   end
 

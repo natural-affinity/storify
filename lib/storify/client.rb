@@ -7,11 +7,14 @@ module Storify
     # define end of content example
     EOC = {'content' => {'stories' => [], 'elements' => []}}
 
-    attr_reader :api_key, :username, :token
+    attr_accessor :api_key, :username, :token
 
-    def initialize(api_key, username)
-      @api_key = api_key
-      @username = username
+    def initialize(options = {})
+      options.each do |k, v|
+        send(:"#{k}=", v)
+      end
+
+      yield self if block_given?
     end
 
     def auth(password, options: {})

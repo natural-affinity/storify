@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Storify::Client do
   before(:each) do
-    @client = Storify::Client.new(@api_key, @username)
+    @client = Storify::Client.new(:api_key => @api_key, :username => @username)
   end
 
   context "Authentication" do
