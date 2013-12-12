@@ -50,6 +50,10 @@ describe Storify do
       Storify::ENDPOINTS[:v1][:featured].should == "/stories/browse/featured"
     end
 
+    it "should support the Popular Stories endpoint" do
+      Storify::ENDPOINTS[:v1][:popular].should == "/stories/browse/popular"
+    end
+
     it "should support the User Stories endpoint" do
       Storify::ENDPOINTS[:v1][:userstories].should == "/stories/:username"
     end

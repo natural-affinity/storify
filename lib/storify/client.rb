@@ -34,6 +34,10 @@ module Storify
       story_list(:featured, pager, options: options, use_auth: false)
     end
 
+    def popular(pager: nil, options: {})
+      story_list(:popular, pager, options: options, use_auth: false)
+    end
+
     def userstories(username = @username, pager: nil, options: {})
       params = {':username' => username}
       story_list(:userstories, pager, options: options, params: params)

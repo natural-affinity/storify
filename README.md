@@ -63,6 +63,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/:username/:slug` | `YES`   | `YES`   | `client.story`       |
 | `GET`   | `/stories/browse/latest`   | `YES`   | `YES`   | `client.latest`      |
 | `GET`   | `/stories/browse/featured` | `YES`   | `YES`   | `client.featured`    |
+| `GET`   | `/stories/browse/popular`  | `YES`   | `YES`   | `client.popular`     |
 
 Example: Get a list of stories for a user
 ```ruby
@@ -79,11 +80,11 @@ story = client.story('<story slug>','<any username>')
 
 For any of the supported methods, you can specify paging options (page, max, per_page).
 
-| Attribute  | Default   |
-| ---------- | --------- |
-| `page`     | `1`       |
-| `per_page` | `20`      |
-| `max`      | `0 (all)` |
+| Attribute  | Default   | API Limits   |
+| ---------- | --------- | ------------ |
+| `page`     | `1`       | 1..unbounded |
+| `per_page` | `20`      | 1..50        |
+| `max`      | `0 (all)` | N/A          |
 
 
 Retrieve page 3 to the end of the story:
@@ -108,6 +109,12 @@ Retrieve the top 10 featured stories:
  ```ruby
 p = Storify::Pager.new(page: 1, max: 1, per_page: 10)
 story = client.featured('<slug>','<username>', pager: p)
+```
+
+Retrieve the top 50 popular stories:
+ ```ruby
+p = Storify::Pager.new(page: 1, max: 1, per_page: 50)
+story = client.popular('<slug>','<username>', pager: p)
 ```
 
 ### Options
