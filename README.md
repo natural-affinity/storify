@@ -91,6 +91,11 @@ pager = Storify::Pager.new(page: 2, max: 3, per_page: 10)
 story = client.story('slug','user', pager: pager)
 ```
 
+Retrieve the top 20 newest stories:
+ ```ruby
+pager = Storify::Pager.new(page: 1, max: 1, per_page: 20)
+story = client.story('slug','user', pager: pager)
+```
 
 ### Options
 
