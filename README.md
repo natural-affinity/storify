@@ -43,7 +43,7 @@ require 'storify'
 
 Create an instance of the client with your Storify API key and username:
 ```ruby
-client = Storify::Client.new('<api_key>', '<username>')
+client = Storify::Client.new('<api key>', '<username>')
 ```
 
 Authenticate your client application (password required):
@@ -62,7 +62,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/:username`       | `YES`   | `YES`   | `client.userstories` |
 | `GET`   | `/stories/:username/:slug` | `YES`   | `YES`   | `client.story`       |
 | `GET`   | `/stories/browse/latest`   | `YES`   | `YES`   | `client.latest`      |
-| `GET`   | `/stories/browse/featured  | `YES`   | `YES`   | `client.featured`    |
+| `GET`   | `/stories/browse/featured` | `YES`   | `YES`   | `client.featured`    |
 
 Example: Get a list of stories for a user
 ```ruby
@@ -79,28 +79,35 @@ story = client.story('<story slug>','<any username>')
 
 For any of the supported methods, you can specify paging options (page, max, per_page).
 
+| Attribute  | Default   |
+| ---------- | --------- |
+| `page`     | `1`       |
+| `per_page` | `20`      |
+| `max`      | `0 (all)` |
+
+
 Retrieve page 3 to the end of the story:
 ```ruby
-pager = Storify::Pager.new(page: 3)
-story = client.story('slug','user', pager: pager)
+p = Storify::Pager.new(page: 3)
+story = client.story('<slug>','<username>', pager: p)
 ```
 
 Retrieve pages 2-3 (inclusive), 10 pages at a time:
 ```ruby
-pager = Storify::Pager.new(page: 2, max: 3, per_page: 10)
-story = client.story('slug','user', pager: pager)
+p = Storify::Pager.new(page: 2, max: 3, per_page: 10)
+story = client.story('<slug>','<username>', pager: p)
 ```
 
 Retrieve the top 20 newest stories:
  ```ruby
-pager = Storify::Pager.new(page: 1, max: 1, per_page: 20)
-story = client.latest('slug','user', pager: pager)
+p = Storify::Pager.new(page: 1, max: 1, per_page: 20)
+story = client.latest('<slug>','<username>', pager: p)
 ```
 
 Retrieve the top 10 featured stories:
  ```ruby
-pager = Storify::Pager.new(page: 1, max: 1, per_page: 10)
-story = client.featured('slug','user', pager: pager)
+p = Storify::Pager.new(page: 1, max: 1, per_page: 10)
+story = client.featured('<slug>','<username>', pager: p)
 ```
 
 ### Options
@@ -110,8 +117,8 @@ protocol (http/https) at runtime.
 
 Get a story using `version 1` of the API and `http` instead of `https` by default:
 ```ruby
-options = {:version => :v1, :protocol => :insecure}
-story = client.story('slug','user', options: options)
+opts = {:version => :v1, :protocol => :insecure}
+story = client.story('<slug>','<username>', options: opts)
 ```
 
 ### Rendering
