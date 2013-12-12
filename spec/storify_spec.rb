@@ -38,6 +38,14 @@ describe Storify do
       Storify::ENDPOINTS[:v1][:auth].should == "/auth"
     end
 
+    it "should support the Stories endpoint" do
+      Storify::ENDPOINTS[:v1][:stories].should == "/stories"
+    end
+
+    it "should support the Latest Stories endpoint" do
+      Storify::ENDPOINTS[:v1][:latest].should == "/stories/browse/latest"
+    end
+
     it "should support the User Stories endpoint" do
       Storify::ENDPOINTS[:v1][:userstories].should == "/stories/:username"
     end

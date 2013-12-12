@@ -10,7 +10,8 @@ module Storify
       :auth => '/auth',
       :stories => '/stories',
       :userstories => '/stories/:username',
-      :userstory => '/stories/:username/:slug'
+      :userstory => '/stories/:username/:slug',
+      :latest => '/stories/browse/latest'
     }
   }
 

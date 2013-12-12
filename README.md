@@ -61,6 +61,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories`                 | `YES`   | `YES`   | `client.stories`     |
 | `GET`   | `/stories/:username`       | `YES`   | `YES`   | `client.userstories` |
 | `GET`   | `/stories/:username/:slug` | `YES`   | `YES`   | `client.story`       |
+| `GET`   | `/stories/browse/latest`   | `YES`   | `YES`   | `client.latest`      |
 
 
 Example: Get a list of stories for a user

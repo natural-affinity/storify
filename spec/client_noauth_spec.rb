@@ -23,4 +23,19 @@ describe "Storify::Client -- Unauthenticated" do
       @client.stories(pager: pager).length.should == 40
     end
   end
+
+  context "GET /stories/browse/latest" do
+    it "should get all the latest stories until the maximum" do
+      @client.latest.length.should > 400
+    end
+
+    it "should accept endpoint options (version, protocol)" do
+      @client.latest(options: @options).length > 400
+    end
+
+    it "should get the top 20 stories" do
+      pager = Storify::Pager.new(page: 1, max: 1, per_page: 20)
+      @client.latest(pager: pager).length.should == 20
+    end
+  end
 end

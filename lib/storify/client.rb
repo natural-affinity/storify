@@ -26,6 +26,10 @@ module Storify
       story_list(:stories, pager, options: options, use_auth: false)
     end
 
+    def latest(pager: nil, options: {})
+      story_list(:latest, pager, options: options, use_auth: false)
+    end
+
     def userstories(username = @username, pager: nil, options: {})
       params = {':username' => username}
       story_list(:userstories, pager, options: options, params: params)
