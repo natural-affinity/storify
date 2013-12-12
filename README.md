@@ -62,7 +62,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/:username`       | `YES`   | `YES`   | `client.userstories` |
 | `GET`   | `/stories/:username/:slug` | `YES`   | `YES`   | `client.story`       |
 | `GET`   | `/stories/browse/latest`   | `YES`   | `YES`   | `client.latest`      |
-
+| `GET`   | `/stories/browse/featured  | `YES`   | `YES`   | `client.featured`    |
 
 Example: Get a list of stories for a user
 ```ruby
@@ -94,7 +94,13 @@ story = client.story('slug','user', pager: pager)
 Retrieve the top 20 newest stories:
  ```ruby
 pager = Storify::Pager.new(page: 1, max: 1, per_page: 20)
-story = client.story('slug','user', pager: pager)
+story = client.latest('slug','user', pager: pager)
+```
+
+Retrieve the top 10 featured stories:
+ ```ruby
+pager = Storify::Pager.new(page: 1, max: 1, per_page: 10)
+story = client.featured('slug','user', pager: pager)
 ```
 
 ### Options

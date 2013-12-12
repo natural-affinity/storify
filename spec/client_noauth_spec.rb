@@ -38,4 +38,19 @@ describe "Storify::Client -- Unauthenticated" do
       @client.latest(pager: pager).length.should == 20
     end
   end
+
+  context "GET /stories/browse/featured" do
+    it "should get all the featured stories until the maximum" do
+      @client.featured.length.should > 400
+    end
+
+    it "should accept endpoint options (version, protocol)" do
+      @client.featured(options: @options).length > 400
+    end
+
+    it "should get the top 20 featured stories" do
+      pager = Storify::Pager.new(page: 1, max: 1, per_page: 20)
+      @client.featured(pager: pager).length.should == 20
+    end
+  end
 end

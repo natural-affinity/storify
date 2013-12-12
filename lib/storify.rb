@@ -11,7 +11,8 @@ module Storify
       :stories => '/stories',
       :userstories => '/stories/:username',
       :userstory => '/stories/:username/:slug',
-      :latest => '/stories/browse/latest'
+      :latest => '/stories/browse/latest',
+      :featured => '/stories/browse/featured'
     }
   }
 
