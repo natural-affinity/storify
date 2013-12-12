@@ -21,8 +21,8 @@ TODO
 
 Usage and documentation
 -----------------------
-To run the tests please ensure you have created a `.userkey.rb` file in the spec
-directory.  See the `.userkey.rb.sample` file for details.
+To run the tests please ensure you have created a `.userkey.rb` file in the spec directory.
+See the `.userkey.rb.sample` file for details.
 
 Note: The Storify API currently requires a password to be entered for
 authentication. Please ensure you perform this securely (as you do not want it
@@ -37,12 +37,11 @@ Install the gem:
 $ gem install storify
 ```
 
-### Usage
-
 Include the 'storify' gem in your script:
 ```ruby
 require 'storify'
 ```
+
 
 ### Configuration
 
@@ -55,7 +54,7 @@ client = Storify::Client.new do |config|
 end
 ```
 
-Authenticate your client application to receive your `token` (password required):
+Authenticate your `Storify::Client` to receive your `token` (password required):
 ```ruby
 client.auth('<password>')
 ```
