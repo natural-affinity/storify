@@ -18,12 +18,12 @@ TODO
 
 Usage and documentation
 -----------------------
-To run the tests please ensure you have created a .userkey.rb file in the spec directory.  
-See the .userkey.rb.sample file for details.  
+To run the tests please ensure you have created a .userkey.rb file in the spec directory.
+See the .userkey.rb.sample file for details.
 
-Note: The storify API currently requires a password to be entered for 
-authentication. Please ensure you perform this securely (as you do not want it 
-to appear in plaintext within your shell profile history or within your script). 
+Note: The storify API currently requires a password to be entered for
+authentication. Please ensure you perform this securely (as you do not want it
+to appear in plaintext within your shell profile history or within your script).
 The included specs demonstrate masking a password from shell history.
 
 
@@ -51,27 +51,32 @@ Authenticate your client application (password required):
 client.auth('<password>')
 ```
 
-Retrieve a list of stories for a user:
+### Operations
+
+The following operations have currently been implemented:
+
+| Verb    | Operation                  | Paging  | Options | Method               |
+| ------- | -------------------------- | :-----: | :-----: | -------------------- |
+| `POST`  | `/auth`                    | `N/A`   | `YES`   | `client.auth`        |
+| `GET`   | `/stories`                 | `YES`   | `YES`   | `client.stories`     |
+| `GET`   | `/stories/:username`       | `YES`   | `YES`   | `client.userstories` |
+| `GET`   | `/stories/:username/:slug` | `YES`   | `YES`   | `client.story`       |
+
+
+Example: Get a list of stories for a user
 ```ruby
 stories = client.userstories('<any username>')
 ```
 
-Retrieve an entire, specific-story for a user:
+Example: Get an entire story for a user
 ```ruby
 story = client.story('<story slug>','<any username>')
 ```
 
-### API Options
 
-For any of the supported methods, you can now specify the API version, and
-protocol (http/https) at runtime.  Similarly, you can also specify paging options for supported methods.  
+### Paging
 
-
-Retrieve a story using v1 of the API and http instead of https by default:
-```ruby
-options = {:version => :v1, :protocol => :insecure}
-story = client.story('slug','user', options: options)
-```
+For any of the supported methods, you can specify paging options (page, max, per_page).
 
 Retrieve page 3 to the end of the story:
 ```ruby
@@ -85,13 +90,26 @@ pager = Storify::Pager.new(page: 2, max: 3, per_page: 10)
 story = client.story('slug','user', pager: pager)
 ```
 
-### Rendering Options
+
+### Options
+
+For any of the supported methods, you can now specify the API version, and
+protocol (http/https) at runtime.
+
+Get a story using `version 1` of the API and `http` instead of `https` by default:
+```ruby
+options = {:version => :v1, :protocol => :insecure}
+story = client.story('slug','user', options: options)
+```
+
+### Rendering
 
 Render a text-only version of a particular story (e.g. startup digest):
 ```ruby
 story = client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')
 puts story.to_s
 ```
+
 
 ### Sample Output: Text-only Story
 ```html
@@ -101,7 +119,7 @@ Date: 2013-12-09
 Author: joshuabaer
 Link: http://storify.com/joshuabaer/austin-startup-digest-for-december-9-2014
 
-Welcome to the Austin Startup Digest! Sign up for a weekly email with all of the upcoming startup events at http://startupdigest.com/austin 
+Welcome to the Austin Startup Digest! Sign up for a weekly email with all of the upcoming startup events at http://startupdigest.com/austin
 
 --- CLICK "NEXT PAGE" AT THE BOTTOM FOR MORE ---
 
@@ -182,12 +200,12 @@ FAVORITE TWEETS
 [2013-12-03] ddayman: http://twitter.com/ddayman/status/407883765482921984
 [2013-12-06] @peterostrander: http://twitter.com/peterostrander/status/408804882679078912
 [2013-12-07] SciencePorn: http://twitter.com/SciencePorn/status/409182832234213376
-```  
+```
 
 Special Thanks
 --------------
-Storify ([@Storify](http://twitter.com/Storify)) for building an awesome product.  
+Storify ([@Storify](http://twitter.com/Storify)) for building an awesome product.
 
 License
 -------
-Released under the MIT License.   
+Released under the MIT License.

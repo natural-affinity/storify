@@ -76,4 +76,17 @@ describe Storify do
       uri.should == 'http://api.storify.com/v1/stories/rtejpar'
     end
   end
+
+  context "API v1 Error Handling" do
+    it "should return an empty content block (if api max reached)" do
+      eoc = Storify::Client::EOC
+      content = Storify::error(400, '...Max...', 'bad request', end_of_content: eoc)
+      content.should == eoc
+    end
+
+    it "should return an API error for a non-max case" do
+      eoc = Storify::Client::EOC
+      expect{Storify::error(400, '...', 'bad request', end_of_content: eoc)}.to raise_error(Storify::ApiError)
+    end
+  end
 end

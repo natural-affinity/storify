@@ -8,6 +8,7 @@ module Storify
     :v1 => {
       :base => 'api.storify.com/v1',
       :auth => '/auth',
+      :stories => '/stories',
       :userstories => '/stories/:username',
       :userstory => '/stories/:username/:slug'
     }
@@ -25,6 +26,14 @@ module Storify
     params.each_pair {|k,v| uri = uri.gsub(k,v) }
 
     uri
+  end
+
+  def self.error(code, message, type, end_of_content: {})
+    unless message.downcase.include?('max')
+      raise Storify::ApiError.new(code, message, type)
+    end
+
+    end_of_content
   end
 end
 
