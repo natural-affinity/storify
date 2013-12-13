@@ -45,6 +45,11 @@ module Storify
       story_list(:topic, pager, options: options, params: {':topic' => topic})
     end
 
+    def search(criteria, pager: nil, options: {})
+      u = {'q' => criteria}
+      story_list(:search, pager, options: options, use_auth: false, uparams: u)
+    end
+
     def userstories(username = @username, pager: nil, options: {})
       params = {':username' => username}
       story_list(:userstories, pager, options: options, params: params)
@@ -95,7 +100,7 @@ module Storify
 
     private
 
-    def story_list(method, pager, params: {}, options: {}, use_auth: true)
+    def story_list(method, pager, params: {}, options: {}, use_auth: true, uparams: {})
       endpoint = Storify::endpoint(version: options[:version],
                                    protocol: options[:protocol],
                                    method: method,
@@ -105,7 +110,7 @@ module Storify
       stories = []
 
       begin
-        data = call(endpoint, :GET, paging: pager.to_hash, use_auth: use_auth)
+        data = call(endpoint, :GET, paging: pager.to_hash, use_auth: use_auth, params: uparams)
         content = data['content']
 
         content['stories'].each do |s|

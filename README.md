@@ -74,6 +74,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/browse/featured`          | `YES`   | `YES`   | `client.featured`    |
 | `GET`   | `/stories/browse/popular`           | `YES`   | `YES`   | `client.popular`     |
 | `GET`   | `/stories/browse/topic/:topic`      | `YES`   | `YES`   | `client.topic`       |
+| `GET`   | `/stories/search`                   | `YES`   | `YES`   | `client.search`      |
 
 
 Example: Get a list of stories for a user
@@ -89,6 +90,11 @@ story = client.story('<story slug>','<any username>')
 Example: Change a story slug and print new slug name
 ```ruby
 puts client.edit_slug('<username>', '<old slug>', <'new slug>')
+```
+
+Example: Search for stories about startups (i.e. #startup)
+```ruby
+stories = client.search('<criteria>')
 ```
 
 

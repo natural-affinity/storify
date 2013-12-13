@@ -83,8 +83,23 @@ describe "Storify::Client -- Unauthenticated" do
       @client.topic('nfl-playoffs', pager: p).length.should == 10
     end
 
-    it "should raise an exception is the topic is not found" do
+    it "should raise an exception if the topic is not found" do
       expect{@client.topic('does-not-exist-topic')}.to raise_exception(Storify::ApiError)
+    end
+  end
+
+  context "GET /stories/search" do
+    it "should get all stories with a specified search criteria" do
+      @client.search('startups').length.should > 10
+    end
+
+    it "should accept endpoint options (version, protocol)" do
+      @client.search('startups', options: @options).length.should > 10
+    end
+
+    it "should get the first 5 stories about startups" do
+      p = Storify::Pager.new(page: 1, max: 1, per_page: 5)
+      @client.search('startups', pager: p).length.should == 5
     end
   end
 end
