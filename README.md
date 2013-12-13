@@ -73,7 +73,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/browse/latest`            | `YES`   | `YES`   | `client.latest`      |
 | `GET`   | `/stories/browse/featured`          | `YES`   | `YES`   | `client.featured`    |
 | `GET`   | `/stories/browse/popular`           | `YES`   | `YES`   | `client.popular`     |
-| `GET`   | `/stories/browse/topic/:topic       | `YES`   | `YES`   | `client.topic`       |
+| `GET`   | `/stories/browse/topic/:topic`      | `YES`   | `YES`   | `client.topic`       |
 
 
 Example: Get a list of stories for a user
