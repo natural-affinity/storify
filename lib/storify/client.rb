@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-RestClient.log = './restclient.log'
+#RestClient.log = './restclient.log'
 
 module Storify
   class Client
