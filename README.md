@@ -9,7 +9,7 @@ Status
 Prerequisites
 -------------
 * Ruby 2.0
-* storify.gemspec dependencies
+* Storify.gemspec dependencies
 * Storify developer account and API key
 
 TODO
@@ -89,7 +89,7 @@ story = client.story('<story slug>','<any username>')
 
 Example: Change a story slug and print new slug name
 ```ruby
-puts client.edit_slug('<username>', '<old slug>', <'new slug>')
+puts client.edit_slug('<username>', '<old slug>', '<new slug>')
 ```
 
 Example: Search for stories about startups (i.e. #startup)
