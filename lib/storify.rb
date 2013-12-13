@@ -14,6 +14,7 @@ module Storify
       :latest => '/stories/browse/latest',
       :featured => '/stories/browse/featured',
       :popular => '/stories/browse/popular',
+      :topic => '/stories/browse/topic/:topic',
       :editslug => '/stories/:username/:slug/editslug'
     }
   }

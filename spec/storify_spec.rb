@@ -54,6 +54,10 @@ describe Storify do
       Storify::ENDPOINTS[:v1][:popular].should == "/stories/browse/popular"
     end
 
+    it "should support Stories by Topic endpoint" do
+      Storify::ENDPOINTS[:v1][:topic].should == "/stories/browse/topic/:topic"
+    end
+
     it "should support the User Stories endpoint" do
       Storify::ENDPOINTS[:v1][:userstories].should == "/stories/:username"
     end
@@ -63,7 +67,7 @@ describe Storify do
     end
 
     it "should support the Edit Story Slug endpoint" do
-      Storify::ENDPOINTS[:v1][:editslug].should == "/stories/:username/:story-slug/editslug"
+      Storify::ENDPOINTS[:v1][:editslug].should == "/stories/:username/:slug/editslug"
     end
   end
 

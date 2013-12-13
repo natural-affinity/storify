@@ -73,6 +73,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/browse/latest`            | `YES`   | `YES`   | `client.latest`      |
 | `GET`   | `/stories/browse/featured`          | `YES`   | `YES`   | `client.featured`    |
 | `GET`   | `/stories/browse/popular`           | `YES`   | `YES`   | `client.popular`     |
+| `GET`   | `/stories/browse/topic/:topic       | `YES`   | `YES`   | `client.topic`       |
 
 
 Example: Get a list of stories for a user
@@ -117,19 +118,25 @@ story = client.story('<slug>','<username>', pager: p)
 Retrieve the top 20 newest stories:
  ```ruby
 p = Storify::Pager.new(page: 1, max: 1, per_page: 20)
-story = client.latest('<slug>','<username>', pager: p)
+story = client.latest(pager: p)
 ```
 
 Retrieve the top 10 featured stories:
  ```ruby
 p = Storify::Pager.new(page: 1, max: 1, per_page: 10)
-story = client.featured('<slug>','<username>', pager: p)
+story = client.featured(pager: p)
 ```
 
 Retrieve the top 50 popular stories:
  ```ruby
 p = Storify::Pager.new(page: 1, max: 1, per_page: 50)
-story = client.popular('<slug>','<username>', pager: p)
+story = client.popular(pager: p)
+```
+
+Retrieve the top 10 stories for a topic:
+ ```ruby
+p = Storify::Pager.new(page: 1, max: 1, per_page: 10)
+story = client.popular('<topic>', pager: p)
 ```
 
 
