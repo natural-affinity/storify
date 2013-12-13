@@ -37,7 +37,7 @@ Install the gem:
 $ gem install storify
 ```
 
-Include the 'storify' gem in your script:
+Include the `storify` gem in your script:
 ```ruby
 require 'storify'
 ```
@@ -63,15 +63,16 @@ client.auth('<password>')
 
 The following operations have currently been implemented:
 
-| Verb    | Operation                  | Paging  | Options | Method               |
-| ------- | -------------------------- | :-----: | :-----: | -------------------- |
-| `POST`  | `/auth`                    | `N/A`   | `YES`   | `client.auth`        |
-| `GET`   | `/stories`                 | `YES`   | `YES`   | `client.stories`     |
-| `GET`   | `/stories/:username`       | `YES`   | `YES`   | `client.userstories` |
-| `GET`   | `/stories/:username/:slug` | `YES`   | `YES`   | `client.story`       |
-| `GET`   | `/stories/browse/latest`   | `YES`   | `YES`   | `client.latest`      |
-| `GET`   | `/stories/browse/featured` | `YES`   | `YES`   | `client.featured`    |
-| `GET`   | `/stories/browse/popular`  | `YES`   | `YES`   | `client.popular`     |
+| Verb    | Operation                          | Paging  | Options | Method               |
+| ------- | ---------------------------------- | :-----: | :-----: | -------------------- |
+| `POST`  | `/auth`                            | `N/A`   | `YES`   | `client.auth`        |
+| `POST`  | `/stories/:username/:slug/editslug | `N/A`   | `YES`   | `client.editslug`    |
+| `GET`   | `/stories`                         | `YES`   | `YES`   | `client.stories`     |
+| `GET`   | `/stories/:username`               | `YES`   | `YES`   | `client.userstories` |
+| `GET`   | `/stories/:username/:slug`         | `YES`   | `YES`   | `client.story`       |
+| `GET`   | `/stories/browse/latest`           | `YES`   | `YES`   | `client.latest`      |
+| `GET`   | `/stories/browse/featured`         | `YES`   | `YES`   | `client.featured`    |
+| `GET`   | `/stories/browse/popular`          | `YES`   | `YES`   | `client.popular`     |
 
 
 Example: Get a list of stories for a user
@@ -82,6 +83,11 @@ stories = client.userstories('<any username>')
 Example: Get an entire story for a user
 ```ruby
 story = client.story('<story slug>','<any username>')
+```
+
+Example: Change a story slug and print new slug name
+```ruby
+puts client.edit_slug('<username>', '<old slug>', <'new slug>')
 ```
 
 
@@ -245,4 +251,4 @@ Storify ([@Storify](http://twitter.com/Storify)) for building an awesome product
 
 License
 -------
-Released under the MIT License.
+Released under the MIT License.  See the LICENSE file for further details.

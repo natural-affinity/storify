@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-#RestClient.log = './restclient.log'
+RestClient.log = './restclient.log'
 
 module Storify
   class Client
@@ -71,6 +71,17 @@ module Storify
       end while pager.has_pages?(data['content']['elements'])
 
       story
+    end
+
+    def edit_slug(username = @username, old_slug, new_slug, options: {})
+      params = {':username' => username, ':slug' => old_slug}
+      endpoint = Storify::endpoint(version: options[:version],
+                                   protocol: options[:protocol],
+                                   method: :editslug,
+                                   params: params)
+
+      data = call(endpoint, :POST, params: {slug: new_slug})
+      data['content']['slug']
     end
 
     def authenticated

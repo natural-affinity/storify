@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/natural-affinity/storify'
   s.license     = 'MIT'
   s.files       = Dir.glob('lib/**/*.rb')
-  s.test_files  = Dir.glob('spec/*.rb')
+  s.test_files  = Dir.glob('spec/**/*.rb')
 
   s.add_runtime_dependency 'json', '>=1.7.7'
   s.add_runtime_dependency 'rest-client', '>=1.6.7'

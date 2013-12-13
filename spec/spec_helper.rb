@@ -5,7 +5,7 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.add_setting :api_key, :default => ''
   config.add_setting :api_usr, :default => ''
-  
+
   # load user-specific keys or fallback to defaults
   config.before(:all) do
     begin

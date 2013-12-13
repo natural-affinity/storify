@@ -53,17 +53,17 @@ describe Storify::Client do
 
   context "GET /stories/:username/:slug" do
     before(:all) do
-      puts "Enter a Story Id for your Account:"
-      @story = STDIN.gets.chomp
+      puts "Enter a Story-Slug for your Account:"
+      @slug = STDIN.gets.chomp
     end
 
     it "should get a specific story for a user (all pages)" do
-      @client.story(@story).elements.length.should == 3
+      @client.story(@slug).elements.length.should == 3
     end
 
     it "should accept endpoint options (version, protocol)" do
       options = {:version => :v1, :protocol => :insecure}
-      @client.story(@story, options: options).elements.length.should == 3
+      @client.story(@slug, options: options).elements.length.should == 3
     end
 
     it "should accept paging options (Page)" do
@@ -73,6 +73,27 @@ describe Storify::Client do
 
       ['408651138632667136', '409182832234213376'].each {|s| story.include?(s).should be_true }
      end
+  end
+
+  context "POST /stories/:username/:story-slug/editslug" do
+    before(:all) do
+      puts "Enter a Story-Slug for your Account:"
+      @slug1 = STDIN.gets.chomp
+
+      puts "Enter a New Unique Story-Slug for your Account"
+      @slug2 = STDIN.gets.chomp
+    end
+
+    it "should respond with the new slug name (on a successful change)" do
+      @client.edit_slug(@username, @slug1, @slug2).should == @slug2
+      @client.edit_slug(@username, @slug2, @slug1).should == @slug1
+    end
+
+    it "should accept endpoint options (version, protocol)" do
+      opts = {:version => :v1, :protocol => :insecure}
+      @client.edit_slug(@username, @slug1, @slug2, options: opts).should == @slug2
+      @client.edit_slug(@username, @slug2, @slug1, options: opts).should == @slug1
+    end
   end
 
   it "should allow a story to be serialized as text" do
