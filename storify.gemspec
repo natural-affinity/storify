@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'json', '>=1.7.7'
   s.add_runtime_dependency 'rest-client', '>=1.6.7'
+  s.add_runtime_dependency 'representable', '>=1.7.3'
   s.add_runtime_dependency 'nokogiri', '>=1.6.0'
   s.add_development_dependency 'rspec', '>=2.14.1'
   s.add_development_dependency 'io-console', '>=0.4.2'

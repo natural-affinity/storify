@@ -16,7 +16,8 @@ module Storify
       :popular => '/stories/browse/popular',
       :topic => '/stories/browse/topic/:topic',
       :search => '/stories/search',
-      :editslug => '/stories/:username/:slug/editslug'
+      :editslug => '/stories/:username/:slug/editslug',
+      :users => '/users'
     }
   }
 
@@ -48,3 +49,9 @@ require 'storify/client'
 require 'storify/pager'
 require 'storify/element'
 require 'storify/apierror'
+
+require 'storify/dategroup'
+require 'storify/identity'
+require 'storify/user'
+
+

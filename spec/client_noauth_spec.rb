@@ -102,4 +102,19 @@ describe "Storify::Client -- Unauthenticated" do
       @client.search('startups', pager: p).length.should == 5
     end
   end
+
+  context "GET /users" do
+    it "should get all users until the maximum" do
+      @client.users.length.should > 100
+    end
+
+    it "should accept endpoint options (version, protocol)" do
+      @client.users(options: @options).length.should > 100
+    end
+
+    it "should support paging options" do
+      p = Storify::Pager.new(page: 1, max: 1, per_page: 10)
+      @client.users(pager: p).length.should == 10
+    end
+  end
 end

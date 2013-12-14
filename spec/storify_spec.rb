@@ -73,6 +73,10 @@ describe Storify do
     it "should support the Search Story endpoint" do
       Storify::ENDPOINTS[:v1][:search].should == "/stories/search"
     end
+
+    it "should support the Users endpoint" do
+      Storify::ENDPOINTS[:v1][:users].should == "/users"
+    end
   end
 
   context "API Endpoint URI Builder:" do

@@ -1,11 +1,11 @@
 require 'json'
 require 'rest-client'
-#RestClient.log = './restclient.log'
+RestClient.log = './restclient.log'
 
 module Storify
   class Client
     # define end of content example
-    EOC = {'content' => {'stories' => [], 'elements' => []}}
+    EOC = {'content' => {'stories' => [], 'elements' => [], 'users' => []}}
 
     attr_accessor :api_key, :username, :token
 
@@ -91,6 +91,29 @@ module Storify
 
       data = call(endpoint, :POST, params: {slug: new_slug})
       data['content']['slug']
+    end
+
+    def users(pager: nil, options: {})
+      endpoint = Storify::endpoint(version: options[:version],
+                                   protocol: options[:protocol],
+                                   method: :users)
+
+      pager = pager ||= Pager.new
+      users = []
+
+      begin
+        data = call(endpoint, :GET, paging: pager.to_hash, use_auth: false)
+        content = data['content']
+
+        content['users'].each do |s|
+          json = JSON.generate(s)
+          users << User.new.extend(UserRepresentable).from_json(json)
+        end
+
+        pager.next
+      end while pager.has_pages?(content['users'])
+
+      users
     end
 
     def authenticated
