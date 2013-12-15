@@ -76,7 +76,7 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/browse/topic/:topic`      | `YES`   | `YES`   | `client.topic`       |
 | `GET`   | `/stories/search`                   | `YES`   | `YES`   | `client.search`      |
 | `GET`   | `/users`                            | `YES`   | `YES`   | `client.users`       |
-| `GET`   | `/users/:username`                  | `YES`   | `YES`   | `client.profile`     |
+| `GET`   | `/users/:username`                  | `N/A`   | `YES`   | `client.profile`     |
 
 
 Example: Get a list of stories for a user
