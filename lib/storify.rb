@@ -17,7 +17,8 @@ module Storify
       :topic => '/stories/browse/topic/:topic',
       :search => '/stories/search',
       :editslug => '/stories/:username/:slug/editslug',
-      :users => '/users'
+      :users => '/users',
+      :userprofile => '/users/:username'
     }
   }
 
@@ -50,8 +51,25 @@ require 'storify/pager'
 require 'storify/element'
 require 'storify/apierror'
 
+# base types
+require 'storify/features'
 require 'storify/dategroup'
-require 'storify/identity'
-require 'storify/user'
+require 'storify/coverphoto'
+require 'storify/useridentity'
+require 'storify/userstats'
+require 'storify/agencyinfo'
+require 'storify/customerinfokeys'
+require 'storify/options'
+require 'storify/notifications'
+require 'storify/colors'
+require 'storify/fonts'
 
+# composite types
+require 'storify/typekit'
+require 'storify/style'
+require 'storify/usersettings'
+require 'storify/customerinfo'
+require 'storify/useragency'
+
+require 'storify/user'
 

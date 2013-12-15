@@ -96,6 +96,12 @@ describe Storify::Client do
     end
   end
 
+  context "GET /users/:username" do
+    it "should get a specific user's profile" do
+      @client.profile(@username).username.should == @username
+    end
+  end
+
   it "should allow a story to be serialized as text" do
     story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')
     story.should_not eql ""

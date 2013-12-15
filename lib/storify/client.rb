@@ -116,6 +116,19 @@ module Storify
       users
     end
 
+    def profile(username = @usernmae, options: {})
+      params = {':username' => username}
+      endpoint = Storify::endpoint(version: options[:version],
+                                   protocol: options[:protocol],
+                                   method: :userprofile,
+                                   params: params)
+
+      data = call(endpoint, :GET)
+      json = JSON.generate(data['content'])
+
+      User.new.extend(UserRepresentable).from_json(json)
+    end
+
     def authenticated
       !@token.nil?
     end

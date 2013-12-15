@@ -12,6 +12,7 @@ module Storify
     property :last_story
     property :last_seen
     property :last_email
+    property :last_digest
     property :featured
     property :created
   end
