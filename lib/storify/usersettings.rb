@@ -9,6 +9,7 @@ module Storify
   module UserSettingsRepresentable
     include Representable::JSON
 
+    property :sxsw
     property :comments
     property :facebook_autoshare
     property :facebook_quoteimg

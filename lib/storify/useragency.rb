@@ -10,8 +10,8 @@ module Storify
     include Representable::JSON
 
     property :isAgency
-    property :agencyInfo, :class => Storify::AgencyInfo, :extend => Storify::AgencyInfoRepresentable
+    property :agencyInfo, :class => Storify::Agency::Info, :extend => Storify::Agency::InfoRepresentable
     property :isCustomer
-    property :customerInfo, :class => Storify::CustomerInfo, :extend => Storify::CustomerInfoRepresentable
+    property :customerInfo, :class => Storify::Agency::CustomerInfo, :extend => Storify::Agency::CustomerInfoRepresentable
   end
 end

@@ -57,20 +57,22 @@ require 'storify/dategroup'
 require 'storify/coverphoto'
 require 'storify/useridentity'
 require 'storify/userstats'
-require 'storify/agencyinfo'
-require 'storify/customerinfokeys'
 
-# settings (user)
+# user settings
 require 'storify/settings/fonts'
 require 'storify/settings/colors'
 require 'storify/settings/options'
 require 'storify/settings/notifications'
 require 'storify/settings/typekit'
 require 'storify/settings/style'
-
-# composite types
 require 'storify/usersettings'
-require 'storify/customerinfo'
+
+# user agency
+require 'storify/agency/info'
+require 'storify/agency/customerinfokeys'
+require 'storify/agency/customerinfo'
 require 'storify/useragency'
+
+# user
 require 'storify/user'
 
