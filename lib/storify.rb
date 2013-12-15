@@ -59,14 +59,16 @@ require 'storify/useridentity'
 require 'storify/userstats'
 require 'storify/agencyinfo'
 require 'storify/customerinfokeys'
-require 'storify/options'
-require 'storify/notifications'
-require 'storify/colors'
-require 'storify/fonts'
+
+# settings (user)
+require 'storify/settings/fonts'
+require 'storify/settings/colors'
+require 'storify/settings/options'
+require 'storify/settings/notifications'
+require 'storify/settings/typekit'
+require 'storify/settings/style'
 
 # composite types
-require 'storify/typekit'
-require 'storify/style'
 require 'storify/usersettings'
 require 'storify/customerinfo'
 require 'storify/useragency'
