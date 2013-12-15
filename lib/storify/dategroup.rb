@@ -15,5 +15,7 @@ module Storify
     property :last_digest
     property :featured
     property :created
+    property :modified
+    property :published
   end
 end

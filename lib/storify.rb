@@ -70,6 +70,5 @@ require 'storify/style'
 require 'storify/usersettings'
 require 'storify/customerinfo'
 require 'storify/useragency'
-
 require 'storify/user'
 
