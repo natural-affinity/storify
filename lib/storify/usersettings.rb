@@ -15,8 +15,8 @@ module Storify
     property :facebook_post
     property :twitter_post
     property :ban_notify
-    property :options, :class => Storify::Options, :extend => Storify::OptionsRepresentable
-    property :notifications, :class => Storify::Notifications, :extend => Storify::NotificationsRepresentable
-    property :style, :class => Storify::Style, :extend => Storify::StyleRepresentable
+    property :options, :class => Storify::Settings::Options, :extend => Storify::Settings::OptionsRepresentable
+    property :notifications, :class => Storify::Settings::Notifications, :extend => Storify::Settings::NotificationsRepresentable
+    property :style, :class => Storify::Settings::Style, :extend => Storify::Settings::StyleRepresentable
   end
 end
