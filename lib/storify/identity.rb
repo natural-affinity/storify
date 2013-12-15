@@ -2,10 +2,10 @@ require 'ostruct'
 require 'representable/json'
 
 module Storify
-  class UserIdentity < OpenStruct
+  class Identity < OpenStruct
   end
 
-  module UserIdentityRepresentable
+  module IdentityRepresentable
     include Representable::JSON
 
     property :service

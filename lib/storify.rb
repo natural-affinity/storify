@@ -55,23 +55,23 @@ require 'storify/apierror'
 require 'storify/features'
 require 'storify/dategroup'
 require 'storify/coverphoto'
-require 'storify/useridentity'
+require 'storify/identity'
 require 'storify/userstats'
 
-# user settings
+# settings
 require 'storify/settings/fonts'
 require 'storify/settings/colors'
 require 'storify/settings/options'
 require 'storify/settings/notifications'
 require 'storify/settings/typekit'
 require 'storify/settings/style'
-require 'storify/usersettings'
+require 'storify/settings'
 
-# user agency
+# agency
 require 'storify/agency/info'
 require 'storify/agency/customerinfokeys'
 require 'storify/agency/customerinfo'
-require 'storify/useragency'
+require 'storify/agency'
 
 # user
 require 'storify/user'

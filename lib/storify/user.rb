@@ -33,6 +33,6 @@ module Storify
     property :is_spam
     collection :subscribers, :class => Storify::User, :extend => Storify::UserRepresentable
     collection :subscriptions, :class => Storify::User, :extend => Storify::UserRepresentable
-    collection :identities, :class => Storify::UserIdentity, :extend => Storify::UserIdentityRepresentable
+    collection :identities, :class => Storify::Identity, :extend => Storify::IdentityRepresentable
   end
 end
