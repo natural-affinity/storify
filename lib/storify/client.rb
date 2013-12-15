@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-RestClient.log = './restclient.log'
+#RestClient.log = './restclient.log'
 
 module Storify
   class Client
@@ -117,11 +117,10 @@ module Storify
     end
 
     def profile(username = @usernmae, options: {})
-      params = {':username' => username}
       endpoint = Storify::endpoint(version: options[:version],
                                    protocol: options[:protocol],
                                    method: :userprofile,
-                                   params: params)
+                                   params: {':username' => username})
 
       data = call(endpoint, :GET)
       json = JSON.generate(data['content'])

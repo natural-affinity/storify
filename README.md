@@ -75,6 +75,8 @@ The following operations have currently been implemented:
 | `GET`   | `/stories/browse/popular`           | `YES`   | `YES`   | `client.popular`     |
 | `GET`   | `/stories/browse/topic/:topic`      | `YES`   | `YES`   | `client.topic`       |
 | `GET`   | `/stories/search`                   | `YES`   | `YES`   | `client.search`      |
+| `GET`   | `/users`                            | `YES`   | `YES`   | `client.users`       |
+| `GET`   | `/users/:username`                  | `YES`   | `YES`   | `client.profile`     |
 
 
 Example: Get a list of stories for a user
@@ -95,6 +97,16 @@ puts client.edit_slug('<username>', '<old slug>', '<new slug>')
 Example: Search for stories about startups (i.e. #startup)
 ```ruby
 stories = client.search('<criteria>')
+```
+
+Example: Get a list of Storify Users
+```ruby
+users = client.users
+```
+
+Example: Get a user's profile
+```ruby
+user = client.profile('<any username>')
 ```
 
 
@@ -257,6 +269,33 @@ FAVORITE TWEETS
 [2013-12-06] @peterostrander: http://twitter.com/peterostrander/status/408804882679078912
 [2013-12-07] SciencePorn: http://twitter.com/SciencePorn/status/409182832234213376
 ```
+
+
+### Experimental
+
+I am currently in the process of integrating Representable; this will allow
+easier serialization and de-serialization to/from JSON strings.  This has only
+been implemented for the `Storify::User` model and its sub-types.
+
+Example: Get the raw JSON (string) of a user's profile
+```ruby
+json = client.profile('<any username>').to_json
+puts JSON.pretty_generate(JSON.parse(json))
+```
+
+Example: Get the raw JSON (string) of a user's profile settings
+```ruby
+json = client.profile('<any username>').settings.to_json
+puts JSON.pretty_generate(JSON.parse(json))
+```
+
+Example: Get a JSON object of a user's profile
+```ruby
+user = client.profile('<any username>')
+json = JSON.parse(user.to_json)
+```
+
+
 
 Special Thanks
 --------------
