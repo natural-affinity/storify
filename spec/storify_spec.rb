@@ -97,6 +97,10 @@ describe Storify do
     it "should support the Create Story endpoint" do
       Storify::ENDPOINTS[:v1][:create].should == "/stories/:username/create"
     end
+
+    it "should support the Delete Story endpoint (undocumented)" do
+      Storify::ENDPOINTS[:v1][:delete].should == "/stories/:username/:slug/delete"
+    end
   end
 
   context "API Endpoint URI Builder:" do

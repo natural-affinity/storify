@@ -172,6 +172,18 @@ module Storify
       data['content']['slug']
     end
 
+    def delete(slug, username = @username, options: {})
+      endpoint = Storify::endpoint(version: options[:version],
+                                   protocol: options[:protocol],
+                                   method: :delete,
+                                   params: {':username' => username,
+                                            ':slug' => slug})
+
+      data = call(endpoint, :POST)
+
+      true
+    end
+
     def authenticated
       !@token.nil?
     end

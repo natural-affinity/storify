@@ -241,6 +241,12 @@ describe Storify::Client do
     end
   end
 
+  context "POST /stories/:username/:slug/delete" do
+    it "should delete the specified story" do
+      @client.delete('another-story', @username).should == true
+    end
+  end
+
   context "Serialization" do
     it "should allow a story to be serialized as text" do
       story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')

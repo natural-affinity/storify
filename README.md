@@ -68,6 +68,7 @@ The following operations have currently been implemented:
 | Verb    | Operation                           | Paging  | Options | Method                  |
 | ------- | ----------------------------------- | :-----: | :-----: | ----------------------- |
 | `POST`  | `/auth`                             | `N/A`   | `YES`   | `client.auth`           |
+| `POST`  | `/stories/:username/:slug/delete`   | `N/A`   | `YES`   | `client.delete`         |
 | `POST`  | `/stories/:username/:slug/editslug` | `N/A`   | `YES`   | `client.edit_slug`      |
 | `POST`  | `/stories/:username/:slug/publish`  | `N/A`   | `YES`   | `client.publish`        |
 | `POST`  | `/stories/:username/:slug/save`     | `N/A`   | `YES`   | `client.save`           |
@@ -182,6 +183,11 @@ item.permalink = "http://twitter.com/NicholleJ/status/407924506380861441"
 
 # get the slug name of the story
 slug = client.create(story, true)   # true to publish, false otherwise
+```
+
+Example: Delete a story (undocumented API)
+```ruby
+result = client.delete('<slug>', '<username>')
 ```
 
 

@@ -22,7 +22,8 @@ module Storify
       :update_profile => '/users/:username/update',
       :publish => '/stories/:username/:slug/publish',
       :save => '/stories/:username/:slug/save',
-      :create => '/stories/:username/create'
+      :create => '/stories/:username/create',
+      :delete => '/stories/:username/:slug/delete'
     }
   }
 
