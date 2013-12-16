@@ -85,6 +85,10 @@ describe Storify do
     it "should support the Publish Story endpoint" do
       Storify::ENDPOINTS[:v1][:publish].should == "/stories/:username/:slug/publish"
     end
+
+    it "should support the Update User Profile endpoint" do
+      Storify::ENDPOINTS[:v1][:update_profile].should == "/users/:username/update"
+    end
   end
 
   context "API Endpoint URI Builder:" do

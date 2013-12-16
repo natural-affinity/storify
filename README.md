@@ -63,21 +63,22 @@ client.auth('<password>')
 
 The following operations have currently been implemented:
 
-| Verb    | Operation                           | Paging  | Options | Method               |
-| ------- | ----------------------------------- | :-----: | :-----: | -------------------- |
-| `POST`  | `/auth`                             | `N/A`   | `YES`   | `client.auth`        |
-| `POST`  | `/stories/:username/:slug/editslug` | `N/A`   | `YES`   | `client.edit_slug`   |
-| `POST`  | `/stories/:username/:slug/publish`  | `N/A`   | `YES`   | `client.publish`     |
-| `GET`   | `/stories`                          | `YES`   | `YES`   | `client.stories`     |
-| `GET`   | `/stories/:username`                | `YES`   | `YES`   | `client.userstories` |
-| `GET`   | `/stories/:username/:slug`          | `YES`   | `YES`   | `client.story`       |
-| `GET`   | `/stories/browse/latest`            | `YES`   | `YES`   | `client.latest`      |
-| `GET`   | `/stories/browse/featured`          | `YES`   | `YES`   | `client.featured`    |
-| `GET`   | `/stories/browse/popular`           | `YES`   | `YES`   | `client.popular`     |
-| `GET`   | `/stories/browse/topic/:topic`      | `YES`   | `YES`   | `client.topic`       |
-| `GET`   | `/stories/search`                   | `YES`   | `YES`   | `client.search`      |
-| `GET`   | `/users`                            | `YES`   | `YES`   | `client.users`       |
-| `GET`   | `/users/:username`                  | `N/A`   | `YES`   | `client.profile`     |
+| Verb    | Operation                           | Paging  | Options | Method                  | Paid  |
+| ------- | ----------------------------------- | :-----: | :-----: | ----------------------- | ----- |
+| `POST`  | `/auth`                             | `N/A`   | `YES`   | `client.auth`           | `NO`  |
+| `POST`  | `/stories/:username/:slug/editslug` | `N/A`   | `YES`   | `client.edit_slug`      | `NO`  |
+| `POST`  | `/stories/:username/:slug/publish`  | `N/A`   | `YES`   | `client.publish`        | `NO`  |
+| `POST`  | `/users/:username/update`           | `N/A`   | `YES`   | `client.update_profile` | `YES` |
+| `GET`   | `/stories`                          | `YES`   | `YES`   | `client.stories`        | `NO`  |
+| `GET`   | `/stories/:username`                | `YES`   | `YES`   | `client.userstories`    | `NO`  |
+| `GET`   | `/stories/:username/:slug`          | `YES`   | `YES`   | `client.story`          | `NO`  |
+| `GET`   | `/stories/browse/latest`            | `YES`   | `YES`   | `client.latest`         | `NO`  |
+| `GET`   | `/stories/browse/featured`          | `YES`   | `YES`   | `client.featured`       | `NO`  |
+| `GET`   | `/stories/browse/popular`           | `YES`   | `YES`   | `client.popular`        | `NO`  |
+| `GET`   | `/stories/browse/topic/:topic`      | `YES`   | `YES`   | `client.topic`          | `NO`  |
+| `GET`   | `/stories/search`                   | `YES`   | `YES`   | `client.search`         | `NO`  |
+| `GET`   | `/users`                            | `YES`   | `YES`   | `client.users`          | `NO`  |
+| `GET`   | `/users/:username`                  | `N/A`   | `YES`   | `client.profile`        | `NO`  |
 
 
 Example: Get a list of stories for a user
@@ -116,6 +117,12 @@ story = client.story('<story slug>','<any username>') # Get the Story
 client.publish(story)                                 # Publish it
 ```
 
+Example: Update a User's profile (Business Accounts Only)
+```ruby
+user = client.profile('<username>')
+user.bio = "Master Software Engineer"
+client.update_profile(user)
+```
 
 
 ### Paging

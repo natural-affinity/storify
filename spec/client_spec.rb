@@ -132,19 +132,59 @@ describe Storify::Client do
       @client.publish(story).should == true
     end
 
-    it "should ignore any changes to the story during a publish" do
+    it "should accept endpoint options" do
+      options = {:version => :v1, :protocol => :insecure}
+      story = @client.story('test-story', @username)
+      @client.publish(story, options: options).should == true
+    end
+
+    it "should allow changes to the story during a publish" do
       story = @client.story('no-embeds', @username)
       new_desc = "New Description #{Random.new(Random.new_seed).to_s}"
-      old_desc = story.description
 
       story.description = new_desc
       story.description.should == new_desc
       @client.publish(story).should == true
 
       revised = @client.story('no-embeds', @username)
-      revised.description.should == old_desc
+      revised.description.should == new_desc
+    end
+  end
+
+  context "POST /users/:username/update" do
+    it "should raise an exception if a user is not provided" do
+      expect{@client.update_profile(nil)}.to raise_exception
     end
 
+    it "should raise an exception if the user cannot be found" do
+      user = Storify::User.new.extend(Storify::UserRepresentable)
+      user.username = "rtejpar$$$$"
+      expect{@client.update_profile(user)}.to raise_exception(Storify::ApiError)
+    end
+
+    it "should raise an exception if the profile cannot be updated" do
+      user = Storify::User.new.extend(Storify::UserRepresentable)
+      user.username = "storify"
+      expect{@client.update_profile(user)}.to raise_exception(Storify::ApiError)
+    end
+
+    it "should accept/reject updates to profile information based on plan status" do
+      user = @client.profile(@username)
+      user.location = "Loc #{Random.new(Random.new_seed).to_s}"
+
+      if user.paid_plan == "free"
+        expect{@client.update_profile(user)}.to raise_exception(Storify::ApiError)
+      else
+        @client.update_profile(user).should == true
+      end
+    end
+
+    it "should support endpoint options" do
+      options = {:version => :v1, :protocol => :insecure}
+      user = Storify::User.new.extend(Storify::UserRepresentable)
+      user.username = "rtejpar$$$$"
+      expect{@client.update_profile(user, options: options)}.to raise_exception(Storify::ApiError)
+    end
   end
 
   context "Serialization" do

@@ -135,8 +135,23 @@ module Storify
       User.new.extend(UserRepresentable).from_json(json)
     end
 
+    def update_profile(user, options: {})
+      raise "Not a User" unless user.is_a?(Storify::User)
+
+      username = user.username
+      endpoint = Storify::endpoint(version: options[:version],
+                                   protocol: options[:protocol],
+                                   method: :update_profile,
+                                   params: {':username' => username})
+
+      json = user.to_json
+      data = call(endpoint, :POST, params: {:user => json})
+
+      true
+    end
+
     def publish(story, options: {})
-      puts story.inspect
+
       # ensure we have a story w/slug and author
       raise "Not a Story" unless story.is_a?(Storify::Story)
       raise "No slug found" if story.slug.nil?
@@ -153,7 +168,7 @@ module Storify
 
       # attempt to publish
       json = story.to_json
-      data = call(endpoint, :POST, params: {:data => json})
+      data = call(endpoint, :POST, params: {:story => json})
       true
     end
 
