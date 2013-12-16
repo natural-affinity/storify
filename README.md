@@ -1,5 +1,7 @@
 Storify Ruby Gem
 ================
+[![Gem Version](https://badge.fury.io/rb/storify.png)](http://badge.fury.io/rb/storify)
+
 This is a Ruby interface to the Storify REST-API.
 
 Status
