@@ -1,54 +1,63 @@
-require 'date'
+require 'ostruct'
 require 'nokogiri'
+require 'representable/json'
 
-# todo: split logic into separate source types
 module Storify
-  class Storify::Element
-    attr_reader :type, :source, :link, :published, :author
-    attr_accessor :desc
+  class Element < OpenStruct
 
-    def initialize(content)
-      @type = content['type']
-      @source = content['source']['name']
-      @link = content['permalink']
-      @published = DateTime.parse(content['posted_at'])
+  end
 
-      case @type
-      when 'image'
-        @desc = content['data'][@type]['caption']
+  module ElementRepresentable
+    include Representable::JSON
 
-        if content['data'].has_key?('oembed')
-          @author = content['data']['oembed']['author_name']
-        else
-          @author = content['attribution']['name']
-        end
-      when 'text'
-        @desc = content['data']['text']
-
-        doc = Nokogiri::HTML(@desc)
-        @desc = doc.xpath("//text()").to_s
-      else
-        @desc = content['data'][@type]['description']
-        @author = content['source']['username']
-        @author = "@" + @author if @source.downcase == 'twitter'
-      end
-    end
+    property :id
+    property :eid
+    property :type
+    property :permalink
+    property :posted_at
+    property :updated_at
+    property :data, :class => Storify::StoryData, :extend => Storify::StoryDataRepresentable
+    property :source, :class => Storify::Source, :extend => Storify::SourceRepresentable
+    property :attribution, :class => Storify::Attribution, :extend => Storify::AttributionRepresentable
+    collection :comments, :class => Storify::Comment, :extend => Storify::CommentRepresentable
+    property :stats, :class => Storify::StoryStats, :extend => Storify::StoryStatsRepresentable
+    #meta.....highly variable
 
     def to_s
       out = ''
-      published = @published.to_date
+      desc = ''
+      aut = ''
+      published = DateTime.parse(posted_at).to_date
 
-      case @source.downcase
-      when 'storify'
-        out << "\n#{@desc}\n"
-        out << ('-' * @desc.length) + "\n\n" if @desc.length < 50
-      when 'twitter'
-        out << "[#{@published.to_s}] #{@author}: #{@link}\n"
+      case type
+      when 'image'
+        desc = data.image.caption
+        aut = data.respond_to?(:oembed) ? data.oembed.author_name : attribution.name
+      when 'text'
+        desc = data.text
+
+        doc = Nokogiri::HTML(desc)
+        desc = doc.xpath("//text()").to_s
+        desc = desc.gsub(/&[a-z]+;/,'')
       else
-        out << "#{@author} [#{@published.to_s}]: #{@link}\n"
+        desc = data.send("#{type}".to_sym).description
+
+        aut = source.username
+        aut = "@" + aut if source.name.downcase == 'twitter'
+      end
+
+      case source.name.downcase
+      when 'storify'
+        out << "\n#{desc}\n"
+        out << ('-' * desc.length) + "\n\n" if desc.length < 40
+      when 'twitter'
+        out << "[#{published.to_s}] #{aut}: #{permalink}\n"
+      else
+        out << "#{aut} [#{published.to_s}]: #{permalink}\n"
       end
 
       out
     end
+
   end
 end

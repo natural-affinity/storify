@@ -274,8 +274,7 @@ FAVORITE TWEETS
 ### Experimental
 
 I am currently in the process of integrating Representable; this will allow
-easier serialization and de-serialization to/from JSON strings.  This has only
-been implemented for the `Storify::User` model and its sub-types.
+easier serialization and de-serialization to/from JSON strings.
 
 Example: Get the raw JSON (string) of a user's profile
 ```ruby
@@ -295,6 +294,11 @@ user = client.profile('<any username>')
 json = JSON.parse(user.to_json)
 ```
 
+Example: Get a JSON string from a Story and all sub-components
+```ruby
+story = client.story('<slug>', '<username>')
+json = story.to_json
+```
 
 
 Special Thanks

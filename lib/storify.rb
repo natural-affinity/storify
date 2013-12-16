@@ -45,10 +45,9 @@ module Storify
   end
 end
 
-require 'storify/story'
+
 require 'storify/client'
 require 'storify/pager'
-require 'storify/element'
 require 'storify/apierror'
 
 # base types
@@ -57,6 +56,25 @@ require 'storify/dategroup'
 require 'storify/coverphoto'
 require 'storify/identity'
 require 'storify/userstats'
+require 'storify/source'
+require 'storify/attribution'
+
+# story element data
+require 'storify/data/link'
+require 'storify/data/image'
+require 'storify/data/video'
+require 'storify/data/oembed'
+require 'storify/data'
+
+# story meta
+require 'storify/quotable'
+require 'storify/createdwith'
+require 'storify/storymeta'
+
+# story stats
+require 'storify/statselement'
+require 'storify/statsembed'
+require 'storify/storystats'
 
 # settings
 require 'storify/settings/fonts'
@@ -75,4 +93,6 @@ require 'storify/agency'
 
 # user
 require 'storify/user'
-
+require 'storify/comment'
+require 'storify/element'
+require 'storify/story'

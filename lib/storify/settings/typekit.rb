@@ -10,7 +10,7 @@ module Storify
     module TypekitRepresentable
       include Representable::JSON
 
-      collection :fonts, :class => Storify::Settings::Fonts, :extend => Storify::Settings::FontsRepresentable
+      property :kitId
     end
   end
 end

@@ -1,36 +1,49 @@
+require 'ostruct'
 require 'date'
+require 'representable/json'
 
 module Storify
-  class Story
-    attr_reader :slug, :title, :desc, :link, :published, :author, :elements
+  class Story < OpenStruct
 
-    def initialize(content)
-      @slug = content['slug']
-      @title = content['title']
-      @desc = content['description']
-      @link = content['permalink']
-      @author = content['author']['username']
+  end
 
-      unless content['date']['published'].nil?
-        @published = DateTime.parse(content['date']['published'])
-      end
+  module StoryRepresentable
+    include Representable::JSON
 
-      @elements = []
-    end
-
-    def add_element(element)
-      @elements << element
-    end
+    property :sid
+    property :title
+    property :slug
+    property :status
+    property :version
+    property :permalink
+    property :shortlink
+    property :description
+    property :thumbnail
+    property :date, :class => Storify::DateGroup, :extend => Storify::DateGroupRepresentable
+    property :private
+    property :not_indexed
+    property :is_spam
+    collection :topics
+    collection :siteposts
+    property :meta, :class => Storify::StoryMeta, :extend => Storify::StoryMetaRepresentable
+    property :stats, :class => Storify::StoryStats, :extend => Storify::StoryStatsRepresentable
+    property :modified
+    property :deleted
+    property :author, :class => Storify::User, :extend => Storify::UserRepresentable
+    property :canEdit
+    collection :comments, :class => Storify::Comment, :extend => Storify::CommentRepresentable
+    collection :elements, :class => Storify::Element, :extend => Storify::ElementRepresentable
 
     def to_s
-      published = @published.nil? ? 'unpublished' : @published.to_date
+      published = DateTime.parse(date.published)
+      published = published.nil? ? 'unpublished' : published.to_date
 
-      out = "\n#{@title}\n"
-      out << ('-' * @title.length.to_i) + "\n"
+      out = "\n#{title}\n"
+      out << ('-' * title.length.to_i) + "\n"
       out << "Date: #{published.to_s}\n"
-      out << "Author: #{@author}\n"
-      out << "Link: #{@link}\n"
-      out << "\n#{@desc} \n"
+      out << "Author: #{author.name}\n"
+      out << "Link: #{permalink}\n"
+      out << "\n#{description} \n"
 
       # serialize elements
       elements.each {|e| out << e.to_s }

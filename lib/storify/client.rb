@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-#RestClient.log = './restclient.log'
+RestClient.log = './restclient.log'
 
 module Storify
   class Client
@@ -63,18 +63,25 @@ module Storify
                                    params: params)
 
       pager = pager ||= Pager.new
-
       story = nil
+      first = true
       elements = []
 
       begin
         data = call(endpoint, :GET, paging: pager.to_hash)
-        story = Story.new(data['content']) if story.nil?
+        json = JSON.generate(data['content'])
+
+        if story.nil?
+          story = Story.new.extend(StoryRepresentable).from_json(json)
+        else
+          first = false
+        end
 
         # create elements
         data['content']['elements'].each do |e|
-          story.add_element(Element.new(e))
-        end
+          je = JSON.generate(e)
+          story.elements << Element.new.extend(ElementRepresentable).from_json(je)
+        end unless first
 
         pager.next
       end while pager.has_pages?(data['content']['elements'])
@@ -149,7 +156,8 @@ module Storify
         content = data['content']
 
         content['stories'].each do |s|
-          stories << Story.new(s)
+          json = JSON.generate(s)
+          stories << Story.new.extend(StoryRepresentable).from_json(json)
         end
 
         pager.next

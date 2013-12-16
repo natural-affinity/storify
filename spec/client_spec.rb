@@ -36,12 +36,12 @@ describe Storify::Client do
 
   context "GET /stories/:username" do
     it "should get all stories for a specific user" do
-      @client.userstories(@username).length.should == 2
+      @client.userstories(@username).length.should >= 2
     end
 
     it "should accept endpoint options (version, protocol)" do
       options = {:version => :v1, :protocol => :insecure}
-      @client.userstories(@username, options: options).length.should == 2
+      @client.userstories(@username, options: options).length.should >= 2
     end
 
     it "should accept paging options (Pager)" do
