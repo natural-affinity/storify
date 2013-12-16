@@ -102,8 +102,55 @@ describe Storify::Client do
     end
   end
 
-  it "should allow a story to be serialized as text" do
-    story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')
-    story.should_not eql ""
+  context "POST /stories/:username/:slug/publish" do
+    it "should raise an exception if a story is not provided" do
+      expect{@client.publish(nil)}.to raise_exception
+    end
+
+    it "should raise an exception if the story is not found" do
+      story = Storify::Story.new.extend(Storify::StoryRepresentable)
+      author = Storify::User.new.extend(Storify::UserRepresentable)
+      author.username = 'rtejpar'
+      story.author = author
+      story.slug = 'does-not-exist-story'
+
+      expect{@client.publish(story)}.to raise_exception(Storify::ApiError)
+    end
+
+    it "should raise an exception if you do not have permission to publish" do
+      story = Storify::Story.new.extend(Storify::StoryRepresentable)
+      author = Storify::User.new.extend(Storify::UserRepresentable)
+      author.username = 'storify'
+      story.author = author
+      story.slug = 'storify-acquired-by-livefyre'
+
+      expect{@client.publish(story)}.to raise_exception(Storify::ApiError)
+    end
+
+    it "should publish an existing story" do
+      story = @client.story('test-story', @username)
+      @client.publish(story).should == true
+    end
+
+    it "should ignore any changes to the story during a publish" do
+      story = @client.story('no-embeds', @username)
+      new_desc = "New Description #{Random.new(Random.new_seed).to_s}"
+      old_desc = story.description
+
+      story.description = new_desc
+      story.description.should == new_desc
+      @client.publish(story).should == true
+
+      revised = @client.story('no-embeds', @username)
+      revised.description.should == old_desc
+    end
+
+  end
+
+  context "Serialization" do
+    it "should allow a story to be serialized as text" do
+      story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')
+      story.should_not eql ""
+    end
   end
 end

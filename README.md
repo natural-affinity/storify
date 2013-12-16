@@ -67,6 +67,7 @@ The following operations have currently been implemented:
 | ------- | ----------------------------------- | :-----: | :-----: | -------------------- |
 | `POST`  | `/auth`                             | `N/A`   | `YES`   | `client.auth`        |
 | `POST`  | `/stories/:username/:slug/editslug` | `N/A`   | `YES`   | `client.edit_slug`   |
+| `POST`  | `/stories/:username/:slug/publish`  | `N/A`   | `YES`   | `client.publish`     |
 | `GET`   | `/stories`                          | `YES`   | `YES`   | `client.stories`     |
 | `GET`   | `/stories/:username`                | `YES`   | `YES`   | `client.userstories` |
 | `GET`   | `/stories/:username/:slug`          | `YES`   | `YES`   | `client.story`       |
@@ -108,6 +109,13 @@ Example: Get a user's profile
 ```ruby
 user = client.profile('<any username>')
 ```
+
+Example: Publish an existing story
+```ruby
+story = client.story('<story slug>','<any username>') # Get the Story
+client.publish(story)                                 # Publish it
+```
+
 
 
 ### Paging

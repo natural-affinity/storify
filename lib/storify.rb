@@ -18,7 +18,8 @@ module Storify
       :search => '/stories/search',
       :editslug => '/stories/:username/:slug/editslug',
       :users => '/users',
-      :userprofile => '/users/:username'
+      :userprofile => '/users/:username',
+      :publish => '/stories/:username/:slug/publish'
     }
   }
 

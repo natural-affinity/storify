@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-RestClient.log = './restclient.log'
+#RestClient.log = './restclient.log'
 
 module Storify
   class Client
@@ -134,6 +134,29 @@ module Storify
 
       User.new.extend(UserRepresentable).from_json(json)
     end
+
+    def publish(story, options: {})
+      puts story.inspect
+      # ensure we have a story w/slug and author
+      raise "Not a Story" unless story.is_a?(Storify::Story)
+      raise "No slug found" if story.slug.nil?
+      raise "No author found" if (story.author.nil? || story.author.username.nil?)
+
+      # extract author and slug
+      slug = story.slug
+      username = story.author.username
+      endpoint = Storify::endpoint(version: options[:version],
+                                   protocol: options[:protocol],
+                                   method: :publish,
+                                   params: {':username' => username,
+                                            ':slug' => slug})
+
+      # attempt to publish
+      json = story.to_json
+      data = call(endpoint, :POST, params: {:data => json})
+      true
+    end
+
 
     def authenticated
       !@token.nil?
