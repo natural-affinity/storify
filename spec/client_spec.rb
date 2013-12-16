@@ -187,6 +187,32 @@ describe Storify::Client do
     end
   end
 
+  context "POST /stories/:username/:slug/save" do
+    it "should save an existing story" do
+      story = @client.story('no-embeds', @username)
+      element = Storify::Element.new.extend(Storify::ElementRepresentable)
+      element.data = Storify::StoryData.new.extend(Storify::StoryDataRepresentable)
+      element.data.text = "Added new text item"
+
+      # add new element via permalink to end of story
+      story.elements << element
+
+      @client.save(story).should == true
+
+      # publish changes to make them retrievable
+      @client.publish(story).should == true
+
+      # updated
+      revised = @client.story('no-embeds', @username)
+      revised.elements.length.should == 1
+
+      # test removal
+      revised.elements = []
+      @client.save(revised).should == true
+      @client.publish(revised).should == true
+    end
+  end
+
   context "Serialization" do
     it "should allow a story to be serialized as text" do
       story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')

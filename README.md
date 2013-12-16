@@ -68,6 +68,7 @@ The following operations have currently been implemented:
 | `POST`  | `/auth`                             | `N/A`   | `YES`   | `client.auth`           |
 | `POST`  | `/stories/:username/:slug/editslug` | `N/A`   | `YES`   | `client.edit_slug`      |
 | `POST`  | `/stories/:username/:slug/publish`  | `N/A`   | `YES`   | `client.publish`        |
+| `POST`  | `/stories/:username/:slug/save`     | `N/A`   | `YES`   | `client.save`           |
 | `POST`  | `/users/:username/update`           | `N/A`   | `YES`   | `client.update_profile` |
 | `GET`   | `/stories`                          | `YES`   | `YES`   | `client.stories`        |
 | `GET`   | `/stories/:username`                | `YES`   | `YES`   | `client.userstories`    |
@@ -122,6 +123,35 @@ Example: Update a User's profile (Business Accounts Only)
 user = client.profile('<username>')
 user.bio = "Master Software Engineer"
 client.update_profile(user)
+```
+
+Example: Add a new text item to the end of your story
+```ruby
+story = client.story('<slug>', '<username>')
+
+# build representable types for sub-objects
+element = Storify::Element.new.extend(Storify::ElementRepresentable)
+element.data = Storify::StoryData.new.extend(Storify::StoryDataRepresentable)
+element.data.text = "Adding a new text item!"
+
+# append to elements array (story elements)
+story.elements << element
+
+# save and publish to view (note: not publishing will display "unpublished edits on the interface")
+client.save(story)
+client.publish(story)
+```
+
+Example: Remove all story elements
+```ruby
+story = client.story('<slug>', '<username>')
+
+# wipe story elements
+story.elements = []
+
+# save and publish to view
+client.save(story)
+client.publish(story)
 ```
 
 

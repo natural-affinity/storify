@@ -20,7 +20,8 @@ module Storify
       :users => '/users',
       :userprofile => '/users/:username',
       :update_profile => '/users/:username/update',
-      :publish => '/stories/:username/:slug/publish'
+      :publish => '/stories/:username/:slug/publish',
+      :save => '/stories/:username/:slug/save'
     }
   }
 

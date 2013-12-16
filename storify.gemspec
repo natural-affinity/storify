@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'storify'
-  s.version     = '0.0.12'
+  s.version     = '0.0.13'
   s.date        = '2013-12-16'
   s.summary     = 'Storify API'
   s.description = 'Ruby Wrapper of Storify REST API -- work-in-progress'

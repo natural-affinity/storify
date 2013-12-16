@@ -151,7 +151,21 @@ module Storify
     end
 
     def publish(story, options: {})
+      story_update(story, :publish, options: options)
+    end
 
+    def save(story, options: {})
+      story_update(story, :save, options: options)
+    end
+
+    def authenticated
+      !@token.nil?
+    end
+
+
+    private
+
+    def story_update(story, method, options: {})
       # ensure we have a story w/slug and author
       raise "Not a Story" unless story.is_a?(Storify::Story)
       raise "No slug found" if story.slug.nil?
@@ -162,23 +176,16 @@ module Storify
       username = story.author.username
       endpoint = Storify::endpoint(version: options[:version],
                                    protocol: options[:protocol],
-                                   method: :publish,
+                                   method: method,
                                    params: {':username' => username,
                                             ':slug' => slug})
 
-      # attempt to publish
+      # attempt to update (publish or save)
       json = story.to_json
       data = call(endpoint, :POST, params: {:story => json})
+
       true
     end
-
-
-    def authenticated
-      !@token.nil?
-    end
-
-
-    private
 
     def story_list(method, pager, params: {}, options: {}, use_auth: true, uparams: {})
       endpoint = Storify::endpoint(version: options[:version],
