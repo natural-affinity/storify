@@ -72,6 +72,7 @@ The following operations have currently been implemented:
 | `POST`  | `/stories/:username/:slug/publish`  | `N/A`   | `YES`   | `client.publish`        |
 | `POST`  | `/stories/:username/:slug/save`     | `N/A`   | `YES`   | `client.save`           |
 | `POST`  | `/users/:username/update`           | `N/A`   | `YES`   | `client.update_profile` |
+| `POST`  | `/stories/:username/create`         | `N/A`   | `YES`   | `client.create`         |
 | `GET`   | `/stories`                          | `YES`   | `YES`   | `client.stories`        |
 | `GET`   | `/stories/:username`                | `YES`   | `YES`   | `client.userstories`    |
 | `GET`   | `/stories/:username/:slug`          | `YES`   | `YES`   | `client.story`          |
@@ -154,6 +155,33 @@ story.elements = []
 # save and publish to view
 client.save(story)
 client.publish(story)
+```
+
+Example: Creating and Publish a new story with multiple elements
+```ruby
+story = Storify::Story.new.extend(Storify::StoryRepresentable)
+story.title = "This is my story"
+
+story.elements = []
+story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
+story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
+story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
+
+# add text data item
+item = story.elements[0]
+item.data = Storify::StoryData.new.extend(Storify::StoryDataRepresentable)
+item.data.text = "Start of the story..."
+
+# add twitter link
+item = story.elements[1]
+item.permalink = "http://twitter.com/fmquaglia/status/409875377482264577"
+
+# twitter link with image
+item = story.elements[2]
+item.permalink = "http://twitter.com/NicholleJ/status/407924506380861441"
+
+# get the slug name of the story
+slug = client.create(story, true)   # true to publish, false otherwise
 ```
 
 

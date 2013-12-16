@@ -93,6 +93,10 @@ describe Storify do
     it "should support the Save Story endpoint" do
       Storify::ENDPOINTS[:v1][:save].should == "/stories/:username/:slug/save"
     end
+
+    it "should support the Create Story endpoint" do
+      Storify::ENDPOINTS[:v1][:create].should == "/stories/:username/create"
+    end
   end
 
   context "API Endpoint URI Builder:" do

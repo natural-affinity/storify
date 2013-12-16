@@ -213,6 +213,34 @@ describe Storify::Client do
     end
   end
 
+  context "POST /stories/:username/create" do
+    it "should create a story with multiple elements" do
+      story = Storify::Story.new.extend(Storify::StoryRepresentable)
+      story.title = "Another Story"
+
+      story.elements = []
+      story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
+      story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
+      story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
+
+      # add text data item
+      item = story.elements[0]
+      item.data = Storify::StoryData.new.extend(Storify::StoryDataRepresentable)
+      item.data.text = "Start of the story..."
+
+      # add twitter link
+      item = story.elements[1]
+      item.permalink = "http://twitter.com/fmquaglia/status/409875377482264577"
+
+      # twitter link with image
+      item = story.elements[2]
+      item.permalink = "http://twitter.com/NicholleJ/status/407924506380861441"
+
+      slug = @client.create(story, true)
+      slug.should_not eql ""
+    end
+  end
+
   context "Serialization" do
     it "should allow a story to be serialized as text" do
       story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')

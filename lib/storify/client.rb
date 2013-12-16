@@ -158,6 +158,20 @@ module Storify
       story_update(story, :save, options: options)
     end
 
+    def create(story, publish = false, options: {})
+      raise "Not a Story" unless story.is_a?(Storify::Story)
+
+      endpoint = Storify::endpoint(version: options[:version],
+                                   protocol: options[:protocol],
+                                   method: :create,
+                                   params: {':username' => username})
+
+      data = call(endpoint, :POST, params: {:publish => publish,
+                                            :story => story.to_json})
+
+      data['content']['slug']
+    end
+
     def authenticated
       !@token.nil?
     end
@@ -230,6 +244,8 @@ module Storify
       rescue => e
         data = JSON.parse(e.response)
         error = data['error']
+
+        puts error.inspect
 
         return Storify::error(data['code'], error['message'], error['type'], end_of_content: EOC)
       end
