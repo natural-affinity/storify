@@ -4,9 +4,15 @@ Storify Ruby Gem
 
 This is a Ruby interface to the Storify REST-API.
 
+Blog
+-----
+* Storify Gem Parts 1-7
+* Read Part 1: ([@Storify](http://rizwan-tejpar.tumblr.com/))
+
 Status
 ------
 * Work-in-progress (expect updates)
+* API calls are complete: Working on documentation and refactoring
 
 Prerequisites
 -------------
@@ -16,7 +22,9 @@ Prerequisites
 
 TODO
 ----
-* Continue with wrapping API calls
+* Refactoring
+* Rdoc/ri documentation
+* Support Sorting
 * Formatters for Story Content
 * De-couple specs from actual API (i.e. WebMock)
 
