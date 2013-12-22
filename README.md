@@ -256,6 +256,12 @@ story = client.story('<slug>','<username>', options: opts)
 
 ### Rendering
 
+Render a JSON version of a particular story (including all sub-components):
+```ruby
+story = client.story('<slug>', '<username>')
+json = story.to_json
+```
+
 Render a text-only version of a particular story (e.g. startup digest):
 ```ruby
 story = client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')
@@ -352,36 +358,6 @@ FAVORITE TWEETS
 [2013-12-03] ddayman: http://twitter.com/ddayman/status/407883765482921984
 [2013-12-06] @peterostrander: http://twitter.com/peterostrander/status/408804882679078912
 [2013-12-07] SciencePorn: http://twitter.com/SciencePorn/status/409182832234213376
-```
-
-
-### Experimental
-
-I am currently in the process of integrating Representable; this will allow
-easier serialization and de-serialization to/from JSON strings.
-
-Example: Get the raw JSON (string) of a user's profile
-```ruby
-json = client.profile('<any username>').to_json
-puts JSON.pretty_generate(JSON.parse(json))
-```
-
-Example: Get the raw JSON (string) of a user's profile settings
-```ruby
-json = client.profile('<any username>').settings.to_json
-puts JSON.pretty_generate(JSON.parse(json))
-```
-
-Example: Get a JSON object of a user's profile
-```ruby
-user = client.profile('<any username>')
-json = JSON.parse(user.to_json)
-```
-
-Example: Get a JSON string from a Story and all sub-components
-```ruby
-story = client.story('<slug>', '<username>')
-json = story.to_json
 ```
 
 
