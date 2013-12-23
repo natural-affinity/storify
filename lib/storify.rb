@@ -50,7 +50,7 @@ module Storify
   end
 end
 
-
+require 'storify/resource'
 require 'storify/client'
 require 'storify/pager'
 require 'storify/apierror'

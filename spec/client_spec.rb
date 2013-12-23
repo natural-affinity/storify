@@ -250,7 +250,7 @@ describe Storify::Client do
   context "Serialization" do
     it "should allow a story to be serialized as text" do
       story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')
-      story.should_not eql ""
+      story.to_s.should_not eql ""
     end
   end
 end

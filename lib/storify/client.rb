@@ -17,28 +17,19 @@ module Storify
       yield self if block_given?
     end
 
+
     def auth(password, options: {})
       endpoint = Storify::endpoint(version: options[:version], method: :auth)
-      data = call(endpoint, :POST, params: {password: password})
+      data = call(endpoint, :POST, params: merge_params!(params: {password: password}))
       @token = data['content']['_token']
 
       self
     end
 
-    def stories(pager: nil, options: {})
-      story_list(:stories, pager, options: options, use_auth: false)
-    end
-
-    def latest(pager: nil, options: {})
-      story_list(:latest, pager, options: options, use_auth: false)
-    end
-
-    def featured(pager: nil, options: {})
-      story_list(:featured, pager, options: options, use_auth: false)
-    end
-
-    def popular(pager: nil, options: {})
-      story_list(:popular, pager, options: options, use_auth: false)
+    %w(stories latest featured popular).each do |m|
+      define_method(m) do |pager: nil, options: {}|
+        story_list(m.to_sym, pager, options: options, use_auth: false)
+      end
     end
 
     def topic(topic, pager: nil, options: {})
@@ -68,7 +59,8 @@ module Storify
       elements = []
 
       begin
-        data = call(endpoint, :GET, paging: pager.to_hash)
+        p = merge_params!(paging: pager.to_hash)
+        data = call(endpoint, :GET, params: p)
         json = JSON.generate(data['content'])
 
         if story.nil?
@@ -96,7 +88,7 @@ module Storify
                                    method: :editslug,
                                    params: params)
 
-      data = call(endpoint, :POST, params: {slug: new_slug})
+      data = call(endpoint, :POST, params: merge_params!(params: {slug: new_slug}))
       data['content']['slug']
     end
 
@@ -109,7 +101,8 @@ module Storify
       users = []
 
       begin
-        data = call(endpoint, :GET, paging: pager.to_hash, use_auth: false)
+        p = merge_params!(paging: pager.to_hash, use_auth: false)
+        data = call(endpoint, :GET, params: p)
         content = data['content']
 
         content['users'].each do |s|
@@ -145,7 +138,7 @@ module Storify
                                    params: {':username' => username})
 
       json = user.to_json
-      data = call(endpoint, :POST, params: {:user => json})
+      data = call(endpoint, :POST, params: merge_params!(params: {:user => json}))
 
       true
     end
@@ -166,8 +159,8 @@ module Storify
                                    method: :create,
                                    params: {':username' => username})
 
-      data = call(endpoint, :POST, params: {:publish => publish,
-                                            :story => story.to_json})
+      p = merge_params!(params: {:publish => publish, :story => story.to_json})
+      data = call(endpoint, :POST, params: p)
 
       data['content']['slug']
     end
@@ -179,7 +172,7 @@ module Storify
                                    params: {':username' => username,
                                             ':slug' => slug})
 
-      data = call(endpoint, :POST)
+      data = call(endpoint, :POST, params: merge_params!)
 
       true
     end
@@ -208,7 +201,7 @@ module Storify
 
       # attempt to update (publish or save)
       json = story.to_json
-      data = call(endpoint, :POST, params: {:story => json})
+      data = call(endpoint, :POST, params: merge_params!(params: {:story => json}))
 
       true
     end
@@ -223,7 +216,8 @@ module Storify
       stories = []
 
       begin
-        data = call(endpoint, :GET, paging: pager.to_hash, use_auth: use_auth, params: uparams)
+        p = merge_params!(params: uparams, paging: pager.to_hash, use_auth: use_auth)
+        data = call(endpoint, :GET, params: p)
         content = data['content']
 
         content['stories'].each do |s|
@@ -237,16 +231,18 @@ module Storify
       stories
     end
 
-    def call(endpoint, verb, params: {}, paging: {}, opts: {}, use_auth: true)
+    def merge_params!(params: {}, paging: {}, use_auth: true)
+      params.merge!(paging)
+      params[:username] = @username
+      params[:api_key] = @api_key
+      params[:_token] = @token if (authenticated && use_auth)
+      params
+    end
+
+    def call(endpoint, verb, params: {}, opts: {})
       raw = nil
 
       begin
-        # add paging and auth query params
-        params.merge!(paging)
-        params[:username] = @username
-        params[:api_key] = @api_key
-        params[:_token] = @token if (authenticated && use_auth)
-
         case verb
         when :POST
           raw = RestClient.post endpoint, params, {:accept => :json}
@@ -256,8 +252,6 @@ module Storify
       rescue => e
         data = JSON.parse(e.response)
         error = data['error']
-
-        puts error.inspect
 
         return Storify::error(data['code'], error['message'], error['type'], end_of_content: EOC)
       end
