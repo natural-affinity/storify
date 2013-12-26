@@ -44,7 +44,7 @@ require 'storify'
 
 Run the tests:
 ```bash
-storify$ rspec
+$ rspec
 ```
 
 
