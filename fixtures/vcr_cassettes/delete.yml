@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.storify.com/v1/stories/mock_username/create-story-test/delete
+    body:
+      encoding: US-ASCII
+      string: username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '89'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 26 Dec 2013 17:46:54 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d906b9850a9e02bfbefffb8bbb1ef6ef41388080013968; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      X-Varnish:
+      - '562303555'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Cf-Ray:
+      - e2f97d6d8d8016a
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6pWSs7PK0nNK1GyUgouTU5OLS5OK83JqVQoSs3NL0tNUSgu
+        yS+qVNIBKktJVbIyMjCoBQAAAP//AwDj5F8wMwAAAA==
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 17:46:56 GMT
+recorded_with: VCR 2.8.0

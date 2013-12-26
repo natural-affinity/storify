@@ -1,146 +1,147 @@
 require 'spec_helper'
 
 describe Storify do
-  context "API Protocols:" do
-    it "should support http" do
-      Storify::PROTOCOLS[:insecure].should == "http://"
+  context "API Protocols" do
+    it "supports http" do
+      expect(Storify::PROTOCOLS[:insecure]).to eql "http://"
     end
 
-    it "should support secure http" do
-      Storify::PROTOCOLS[:secure].should == "https://"
+    it "supports secure http" do
+      expect(Storify::PROTOCOLS[:secure]).to eql "https://"
     end
 
-    it "should default to secure http" do
-      Storify::PROTOCOLS[:unknown].should == "https://"
-    end
-  end
-
-  context "API Versions:" do
-    it "should support Storify API v1" do
-      Storify::ENDPOINTS[:v1].is_a?(Hash).should be_true
-    end
-
-    it "should fallback to Storify API v1" do
-      Storify::ENDPOINTS[:unknown].is_a?(Hash).should be_true
+    it "defaults to secure http" do
+      expect(Storify::PROTOCOLS[:unknown]).to eql "https://"
     end
   end
 
-  context "API v1 Endpoints Sub-Paths:" do
-    it "should support a base URL for a version" do
-      Storify::ENDPOINTS[:v1][:base].should == "api.storify.com/v1"
+  context "API Versions" do
+    it "supports v1" do
+      expect(Storify::ENDPOINTS[:v1].is_a?(Hash)).to be_true
     end
 
-    it "should default to the base URL" do
-      Storify::ENDPOINTS[:unknown][:unknown].should == "api.storify.com/v1"
-    end
-
-    it "should support the Authentication endpoint" do
-      Storify::ENDPOINTS[:v1][:auth].should == "/auth"
-    end
-
-    it "should support the Stories endpoint" do
-      Storify::ENDPOINTS[:v1][:stories].should == "/stories"
-    end
-
-    it "should support the Latest Stories endpoint" do
-      Storify::ENDPOINTS[:v1][:latest].should == "/stories/browse/latest"
-    end
-
-    it "should support the Featured Stories endpoint" do
-      Storify::ENDPOINTS[:v1][:featured].should == "/stories/browse/featured"
-    end
-
-    it "should support the Popular Stories endpoint" do
-      Storify::ENDPOINTS[:v1][:popular].should == "/stories/browse/popular"
-    end
-
-    it "should support Stories by Topic endpoint" do
-      Storify::ENDPOINTS[:v1][:topic].should == "/stories/browse/topic/:topic"
-    end
-
-    it "should support the User Stories endpoint" do
-      Storify::ENDPOINTS[:v1][:userstories].should == "/stories/:username"
-    end
-
-    it "should support the Single Story endpoint" do
-      Storify::ENDPOINTS[:v1][:userstory].should == "/stories/:username/:slug"
-    end
-
-    it "should support the Edit Story Slug endpoint" do
-      Storify::ENDPOINTS[:v1][:editslug].should == "/stories/:username/:slug/editslug"
-    end
-
-    it "should support the Search Story endpoint" do
-      Storify::ENDPOINTS[:v1][:search].should == "/stories/search"
-    end
-
-    it "should support the Users endpoint" do
-      Storify::ENDPOINTS[:v1][:users].should == "/users"
-    end
-
-    it "should support the User Profile endpoint" do
-      Storify::ENDPOINTS[:v1][:userprofile].should == "/users/:username"
-    end
-
-    it "should support the Publish Story endpoint" do
-      Storify::ENDPOINTS[:v1][:publish].should == "/stories/:username/:slug/publish"
-    end
-
-    it "should support the Update User Profile endpoint" do
-      Storify::ENDPOINTS[:v1][:update_profile].should == "/users/:username/update"
-    end
-
-    it "should support the Save Story endpoint" do
-      Storify::ENDPOINTS[:v1][:save].should == "/stories/:username/:slug/save"
-    end
-
-    it "should support the Create Story endpoint" do
-      Storify::ENDPOINTS[:v1][:create].should == "/stories/:username/create"
-    end
-
-    it "should support the Delete Story endpoint (undocumented)" do
-      Storify::ENDPOINTS[:v1][:delete].should == "/stories/:username/:slug/delete"
+    it "defaults to v1" do
+      expect(Storify::ENDPOINTS[:unknown].is_a?(Hash)).to be_true
     end
   end
 
-  context "API Endpoint URI Builder:" do
-    it "should allow dynamic protocol selection" do
-      Storify::endpoint(protocol: :secure).include?('https').should be_true
+  context "API Endpoints" do
+    it "supports a base URL for a version" do
+      expect(Storify::ENDPOINTS[:v1][:base]).to eql "api.storify.com/v1"
     end
 
-    it "should allow dynamic version selection" do
-      Storify::endpoint(version: :v1).include?('v1').should be_true
+    it "defaults to the base URL" do
+      expect(Storify::ENDPOINTS[:unknown][:unknown]).to eql "api.storify.com/v1"
     end
 
-    it "should allow dynamic endpoint selection" do
-      Storify::endpoint(method: :auth).include?('/auth').should be_true
+    it "supports Authentication" do
+      expect(Storify::ENDPOINTS[:v1][:auth]).to eql "/auth"
     end
 
-    it "should allow dynamic parameter substitution" do
-      params = {':username' => 'rtejpar', ':slug' => 'this-is-my-story'}
+    it "supports Stories" do
+      expect(Storify::ENDPOINTS[:v1][:stories]).to eql "/stories"
+    end
+
+    it "supports Latest Stories" do
+      expect(Storify::ENDPOINTS[:v1][:latest]).to eql "/stories/browse/latest"
+    end
+
+    it "supports Featured Stories" do
+      expect(Storify::ENDPOINTS[:v1][:featured]).to eql "/stories/browse/featured"
+    end
+
+    it "supports Popular Stories" do
+      expect(Storify::ENDPOINTS[:v1][:popular]).to eql "/stories/browse/popular"
+    end
+
+    it "supports Stories by Topic" do
+      expect(Storify::ENDPOINTS[:v1][:topic]).to eql "/stories/browse/topic/:topic"
+    end
+
+    it "supports User Stories" do
+      expect(Storify::ENDPOINTS[:v1][:userstories]).to eql "/stories/:username"
+    end
+
+    it "supports a Single Story" do
+      expect(Storify::ENDPOINTS[:v1][:userstory]).to eql "/stories/:username/:slug"
+    end
+
+    it "supports Editing a Story Slug" do
+      expect(Storify::ENDPOINTS[:v1][:editslug]).to eql "/stories/:username/:slug/editslug"
+    end
+
+    it "supports Searching for Stories" do
+      expect(Storify::ENDPOINTS[:v1][:search]).to eql "/stories/search"
+    end
+
+    it "supports Users" do
+      expect(Storify::ENDPOINTS[:v1][:users]).to eql "/users"
+    end
+
+    it "supports User Profiles" do
+      expect(Storify::ENDPOINTS[:v1][:userprofile]).to eql "/users/:username"
+    end
+
+    it "supports Publishing a Story" do
+      expect(Storify::ENDPOINTS[:v1][:publish]).to eql "/stories/:username/:slug/publish"
+    end
+
+    it "supports Updating a User Profile" do
+      expect(Storify::ENDPOINTS[:v1][:update_profile]).to eql "/users/:username/update"
+    end
+
+    it "supports Saving a Story" do
+      expect(Storify::ENDPOINTS[:v1][:save]).to eql "/stories/:username/:slug/save"
+    end
+
+    it "supports Creating a Story" do
+      expect(Storify::ENDPOINTS[:v1][:create]).to eql "/stories/:username/create"
+    end
+
+    it "supports Deleting a Story (undocumented)" do
+      expect(Storify::ENDPOINTS[:v1][:delete]).to eql "/stories/:username/:slug/delete"
+    end
+  end
+
+  context "URI Builder" do
+    it "allows dynamic protocol selection" do
+      expect(Storify::endpoint(protocol: :secure).include?('https')).to be_true
+    end
+
+    it "allows dynamic version selection" do
+      expect(Storify::endpoint(version: :v1).include?('v1')).to be_true
+    end
+
+    it "allows dynamic endpoint selection" do
+      expect(Storify::endpoint(method: :auth).include?('/auth')).to be_true
+    end
+
+    it "allows dynamic parameter substitution" do
+      params = {':username' => 'uname', ':slug' => 'this-is-my-story'}
       uri = Storify::endpoint(params: params, method: :userstory)
-      ['rtejpar', 'this-is-my-story'].each {|s| uri.include?(s).should be_true }
+
+      ['uname', 'this-is-my-story'].each do |s|
+        expect(uri.include?(s)).to be_true
+      end
     end
 
-    it "should force secure protocol for Authentication" do
-      Storify::endpoint(protocol: :secure, method: :auth).include?('https').should be_true
+    it "enforces secure protocol for Authentication" do
+      expect(Storify::endpoint(protocol: :secure, method: :auth).include?('https')).to be_true
     end
 
-    it "should build the final uri based on dynamic configuration" do
-      params = {':username' => 'rtejpar'}
-      uri = Storify::endpoint(protocol: :insecure, method: :userstories, params: params)
-      uri.should == 'http://api.storify.com/v1/stories/rtejpar'
+    it "builds the final uri based on dynamic configuration" do
+      params = {':username' => 'uname'}
+      expect(Storify::endpoint(protocol: :insecure, method: :userstories, params: params)).to eql 'http://api.storify.com/v1/stories/uname'
     end
   end
 
-  context "API v1 Error Handling" do
-    it "should return an empty content block (if api max reached)" do
+  context "API Error Handling" do
+    it "returns an empty content block (if api max reached)" do
       eoc = Storify::Client::EOC
-      content = Storify::error(400, '...Max...', 'bad request', end_of_content: eoc)
-      content.should == eoc
+      expect(Storify::error(400, '...Max...', 'bad request', end_of_content: eoc)).to eql eoc
     end
 
-    it "should return an API error for a non-max case" do
+    it "raises an API error for a non-max case" do
       eoc = Storify::Client::EOC
       expect{Storify::error(400, '...', 'bad request', end_of_content: eoc)}.to raise_error(Storify::ApiError)
     end

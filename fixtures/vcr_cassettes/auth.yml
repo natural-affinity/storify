@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.storify.com/v1/auth
+    body:
+      encoding: US-ASCII
+      string: password=mock_password&username=mock_username&api_key=mock_apikey
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '69'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Tue, 24 Dec 2013 05:27:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=ddfe7b3af82cc6d3f46cf09e23dbbf1e01387862838131; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      X-Varnish:
+      - '560476260'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Cf-Ray:
+      - e1ae1b1d8d9016a
+    body:
+      encoding: ASCII-8BIT
+      string: '{"content":{"_id":"52a55317b169adf57700b0b8","username":"mock_username","_access":0,"name":"RT","bio":"Software
+        Engineer, World Traveller, Foodie","location":"Toronto, Canada","website":"http://t.co/4051z4MdbB","avatar":"http://pbs.twimg.com/profile_images/3492487927/2ee01cf324fc09fe70e943c55c57bfb0_reasonably_small.jpeg","permalink":"http://storify.com/mock_username","settings":{"comments":"facebook","facebook_autoshare":true,"facebook_quoteimg":true,"facebook_post":true,"twitter_post":true,"ban_notify":false,"options":{"infinite_scroll":false,"hide_stats":false,"allow_embedding":true,"comments":true,"related_stories":true,"ga":false},"notifications":{"newsletter":true,"digest":true,"likes":true,"comments":true,"follower":true,"quoted":true,"friend_quoted":true,"autoshare":true,"element_comment":true,"element_like":true,"story_comment":true,"story_like":true},"style":{"fonts":{"title":"Georgia,
+        Times","body":"Helvetica, Arial"},"colors":{"text":"#666","link":"#3676c4","background":"#fff"},"typekit":{"fonts":[]}}},"lang":"en","stats":{"views":0,"subscriptions":0,"subscribers":0,"stories":2,"embeds":0},"date":{"updated":"2013-12-24T05:27:18.391Z","last_story":"2013-12-23T18:13:28.148Z","last_seen":"2013-12-24T05:27:18.218Z","last_email":null,"featured":null,"created":"2013-12-09T05:20:23.837Z"},"coverPhoto":{"url":"http://storify.com/public/img/cover.jpg","width":958,"height":200},"canFeatureStories":false,"featuredStories":[],"paid_plan":"free","email_verified":true,"features_enabled":{"custom_embed_style":false,"private_stories":false,"html_for_seo":false,"no_advertising":false,"business_options":false,"headerless_embed":false,"pdf":false,"realtime_updates":false,"storylock":false,"maxEditors":0},"agency":{"isAgency":false,"agencyInfo":{"maxCustomersNum":0,"customers":[]},"isCustomer":false,"customerInfo":{"approved":false,"removalApproved":false,"agencyId":null,"agencyUsername":null,"approved_at":null,"paid_plan":null,"keys":{"approve":null,"remove":null}}},"is_spam":false,"subscribers":[],"subscriptions":[],"identities":[{"service":"twitter","username":"mock_username","name":"RT","date":{"updated":"2013-12-09T05:20:24.477Z","created":"2013-12-09T05:20:24.477Z"},"url":"http://twitter.com/mock_username","avatar":null,"token":"mock_token","secret":"mock_secret","service_userid":"401130836"},{"service":"gravatar","avatar":"http://www.gravatar.com/avatar/31b47319b4ed0ed45ed7df772646c5b1?s=100&d=http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fdefault.avatar.png"}],"_token":"mock__token","email":"mock_username@gmail.com"},"code":200}'
+    http_version:
+  recorded_at: Tue, 24 Dec 2013 05:27:18 GMT
+- request:
+    method: post
+    uri: https://api.storify.com/v1/auth
+    body:
+      encoding: US-ASCII
+      string: password=&username=mock_username&api_key=mock_apikey
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '59'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Tue, 24 Dec 2013 05:27:19 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '140'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d0ce0fb92715d8652811b515312ce0b011387862839056; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Varnish:
+      - '560476274'
+      Cache-Control:
+      - public,max-age=60
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Accept-Ranges:
+      - bytes
+      Via:
+      - 1.1 varnish
+      X-Powered-By:
+      - Express
+      Age:
+      - '0'
+      Cf-Ray:
+      - e1ae1b5b359016a
+    body:
+      encoding: UTF-8
+      string: '{"error":{"type":"missing_required","message":"Missing required fields","fields":{"password":"Required
+        field password missing"}},"code":400}'
+    http_version:
+  recorded_at: Tue, 24 Dec 2013 05:27:19 GMT

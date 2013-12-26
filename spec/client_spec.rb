@@ -1,256 +1,43 @@
 require 'spec_helper'
 
 describe Storify::Client do
-  before(:all) do
-    @client = Storify::Client.new(:api_key => @api_key, :username => @username)
-    @client.auth(get_password)
-  end
+  let(:key) { 'k' }
+  let(:usr) { 'u' }
+  let(:tok) { 't' }
 
   context ".new" do
-    it "should accept a hash of credentials (api_key, username, token)" do
-      clients = [Storify::Client.new(:api_key => 'k', :username => 'u', :token => 't'),
-                 Storify::Client.new('api_key' => 'k', 'username' => 'u', 'token' => 't')]
-
-      clients.each do |c|
-        c.api_key.should == 'k'
-        c.username.should == 'u'
-        c.token.should == 't'
-      end
+    it "accepts a hash of credentials as symbols" do
+      client = Storify::Client.new(:api_key => key, :username => usr, :token => tok)
+      expect(client.api_key).to eql key
+      expect(client.username).to eql usr
+      expect(client.token).to eql tok
     end
 
-    it "should accept a configuration block of credentials" do
+    it "accepts a hash of credentials as strings" do
+      client = Storify::Client.new('api_key' => key, 'username' => usr, 'token' => tok)
+      expect(client.api_key).to eql key
+      expect(client.username).to eql usr
+      expect(client.token).to eql tok
+    end
+
+    it "accepts a block of credentials" do
       client = Storify::Client.new do |config|
-        config.api_key = 'YOUR API KEY'
-        config.username = 'YOUR USERNAME'
-        config.token = 'YOUR AUTH TOKEN'
+        config.api_key = key
+        config.username = usr
+        config.token = tok
       end
 
-      client.api_key.should == 'YOUR API KEY'
+      expect(client.api_key).to eql key
+      expect(client.username).to eql usr
+      expect(client.token).to eql tok
     end
 
-    it "should raise an exception for unknown credentials" do
+    it "raises an exception for unknown hash credentials" do
       expect {Storify::Client.new(:unknown => 'value')}.to raise_exception
+    end
+
+    it "raises an exception for unknown block credentials" do
       expect {Storify::Client.new {|config| config.unknown = ''}}.to raise_exception
-    end
-  end
-
-  context "GET /stories/:username" do
-    it "should get all stories for a specific user" do
-      @client.userstories(@username).length.should >= 2
-    end
-
-    it "should accept endpoint options (version, protocol)" do
-      options = {:version => :v1, :protocol => :insecure}
-      @client.userstories(@username, options: options).length.should >= 2
-    end
-
-    it "should accept paging options (Pager)" do
-      pager = Storify::Pager.new(page: 1, max: 1, per_page: 10)
-      stories = @client.userstories('joshuabaer', pager: pager)
-      stories.length.should == 10
-    end
-  end
-
-  context "GET /stories/:username/:slug" do
-    before(:all) do
-      puts "Enter a Story-Slug for your Account:"
-      @slug = STDIN.gets.chomp
-    end
-
-    it "should get a specific story for a user (all pages)" do
-      @client.story(@slug).elements.length.should == 3
-    end
-
-    it "should accept endpoint options (version, protocol)" do
-      options = {:version => :v1, :protocol => :insecure}
-      @client.story(@slug, options: options).elements.length.should == 3
-    end
-
-    it "should accept paging options (Page)" do
-      pager = Storify::Pager.new(page: 2, max: 3)
-      story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer', pager: pager)
-      story = story.to_s
-
-      ['408651138632667136', '409182832234213376'].each {|s| story.include?(s).should be_true }
-     end
-  end
-
-  context "POST /stories/:username/:story-slug/editslug" do
-    before(:all) do
-      puts "Enter a Story-Slug for your Account:"
-      @slug1 = STDIN.gets.chomp
-
-      puts "Enter a New Unique Story-Slug for your Account"
-      @slug2 = STDIN.gets.chomp
-    end
-
-    it "should respond with the new slug name (on a successful change)" do
-      @client.edit_slug(@username, @slug1, @slug2).should == @slug2
-      @client.edit_slug(@username, @slug2, @slug1).should == @slug1
-    end
-
-    it "should accept endpoint options (version, protocol)" do
-      opts = {:version => :v1, :protocol => :insecure}
-      @client.edit_slug(@username, @slug1, @slug2, options: opts).should == @slug2
-      @client.edit_slug(@username, @slug2, @slug1, options: opts).should == @slug1
-    end
-  end
-
-  context "GET /users/:username" do
-    it "should get a specific user's profile" do
-      @client.profile(@username).username.should == @username
-    end
-  end
-
-  context "POST /stories/:username/:slug/publish" do
-    it "should raise an exception if a story is not provided" do
-      expect{@client.publish(nil)}.to raise_exception
-    end
-
-    it "should raise an exception if the story is not found" do
-      story = Storify::Story.new.extend(Storify::StoryRepresentable)
-      author = Storify::User.new.extend(Storify::UserRepresentable)
-      author.username = 'rtejpar'
-      story.author = author
-      story.slug = 'does-not-exist-story'
-
-      expect{@client.publish(story)}.to raise_exception(Storify::ApiError)
-    end
-
-    it "should raise an exception if you do not have permission to publish" do
-      story = Storify::Story.new.extend(Storify::StoryRepresentable)
-      author = Storify::User.new.extend(Storify::UserRepresentable)
-      author.username = 'storify'
-      story.author = author
-      story.slug = 'storify-acquired-by-livefyre'
-
-      expect{@client.publish(story)}.to raise_exception(Storify::ApiError)
-    end
-
-    it "should publish an existing story" do
-      story = @client.story('test-story', @username)
-      @client.publish(story).should == true
-    end
-
-    it "should accept endpoint options" do
-      options = {:version => :v1, :protocol => :insecure}
-      story = @client.story('test-story', @username)
-      @client.publish(story, options: options).should == true
-    end
-
-    it "should allow changes to the story during a publish" do
-      story = @client.story('no-embeds', @username)
-      new_desc = "New Description #{Random.new(Random.new_seed).to_s}"
-
-      story.description = new_desc
-      story.description.should == new_desc
-      @client.publish(story).should == true
-
-      revised = @client.story('no-embeds', @username)
-      revised.description.should == new_desc
-    end
-  end
-
-  context "POST /users/:username/update" do
-    it "should raise an exception if a user is not provided" do
-      expect{@client.update_profile(nil)}.to raise_exception
-    end
-
-    it "should raise an exception if the user cannot be found" do
-      user = Storify::User.new.extend(Storify::UserRepresentable)
-      user.username = "rtejpar$$$$"
-      expect{@client.update_profile(user)}.to raise_exception(Storify::ApiError)
-    end
-
-    it "should raise an exception if the profile cannot be updated" do
-      user = Storify::User.new.extend(Storify::UserRepresentable)
-      user.username = "storify"
-      expect{@client.update_profile(user)}.to raise_exception(Storify::ApiError)
-    end
-
-    it "should accept/reject updates to profile information based on plan status" do
-      user = @client.profile(@username)
-      user.location = "Loc #{Random.new(Random.new_seed).to_s}"
-
-      if user.paid_plan == "free"
-        expect{@client.update_profile(user)}.to raise_exception(Storify::ApiError)
-      else
-        @client.update_profile(user).should == true
-      end
-    end
-
-    it "should support endpoint options" do
-      options = {:version => :v1, :protocol => :insecure}
-      user = Storify::User.new.extend(Storify::UserRepresentable)
-      user.username = "rtejpar$$$$"
-      expect{@client.update_profile(user, options: options)}.to raise_exception(Storify::ApiError)
-    end
-  end
-
-  context "POST /stories/:username/:slug/save" do
-    it "should save an existing story" do
-      story = @client.story('no-embeds', @username)
-      element = Storify::Element.new.extend(Storify::ElementRepresentable)
-      element.data = Storify::StoryData.new.extend(Storify::StoryDataRepresentable)
-      element.data.text = "Added new text item"
-
-      # add new element via permalink to end of story
-      story.elements << element
-
-      @client.save(story).should == true
-
-      # publish changes to make them retrievable
-      @client.publish(story).should == true
-
-      # updated
-      revised = @client.story('no-embeds', @username)
-      revised.elements.length.should == 1
-
-      # test removal
-      revised.elements = []
-      @client.save(revised).should == true
-      @client.publish(revised).should == true
-    end
-  end
-
-  context "POST /stories/:username/create" do
-    it "should create a story with multiple elements" do
-      story = Storify::Story.new.extend(Storify::StoryRepresentable)
-      story.title = "Another Story"
-
-      story.elements = []
-      story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
-      story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
-      story.elements << Storify::Element.new.extend(Storify::ElementRepresentable)
-
-      # add text data item
-      item = story.elements[0]
-      item.data = Storify::StoryData.new.extend(Storify::StoryDataRepresentable)
-      item.data.text = "Start of the story..."
-
-      # add twitter link
-      item = story.elements[1]
-      item.permalink = "http://twitter.com/fmquaglia/status/409875377482264577"
-
-      # twitter link with image
-      item = story.elements[2]
-      item.permalink = "http://twitter.com/NicholleJ/status/407924506380861441"
-
-      slug = @client.create(story, true)
-      slug.should_not eql ""
-    end
-  end
-
-  context "POST /stories/:username/:slug/delete" do
-    it "should delete the specified story" do
-      @client.delete('another-story', @username).should == true
-    end
-  end
-
-  context "Serialization" do
-    it "should allow a story to be serialized as text" do
-      story = @client.story('austin-startup-digest-for-december-9-2014', 'joshuabaer')
-      story.to_s.should_not eql ""
     end
   end
 end

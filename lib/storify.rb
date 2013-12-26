@@ -55,6 +55,7 @@ require 'storify/pager'
 require 'storify/apierror'
 
 # base types
+require 'storify/string'
 require 'storify/features'
 require 'storify/dategroup'
 require 'storify/coverphoto'

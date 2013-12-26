@@ -116,7 +116,7 @@ module Storify
       users
     end
 
-    def profile(username = @usernmae, options: {})
+    def profile(username = @username, options: {})
       endpoint = Storify::endpoint(version: options[:version],
                                    protocol: options[:protocol],
                                    method: :userprofile,
@@ -217,6 +217,7 @@ module Storify
 
       begin
         p = merge_params!(params: uparams, paging: pager.to_hash, use_auth: use_auth)
+
         data = call(endpoint, :GET, params: p)
         content = data['content']
 
@@ -247,7 +248,7 @@ module Storify
         when :POST
           raw = RestClient.post endpoint, params, {:accept => :json}
         when :GET
-          raw = RestClient.get endpoint, {:params => params}
+          raw = RestClient.get endpoint, {:params => params, :accept => :json}
         end
       rescue => e
         data = JSON.parse(e.response)

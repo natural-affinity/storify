@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.storify.com/v1/users/mock_username
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 25 Dec 2013 18:24:57 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d5a9aed6f0d5e2cdf092d3c5ebb5db0341387995897076; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache:
+      - MISS
+      Cache-Control:
+      - public,max-age=60
+      X-Varnish:
+      - '561578564'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Cf-Ray:
+      - e279234b8680418
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA2RTTZPaMAz9K4z3yiwBErJw23b6cemlZaaHTicjx3LWi2Ol
+        toFShv9eORDYj5v9JEvvPclHUZOL6KJYHUVllFiJYgZFMZ+WcrpYgtJFWWaZ
+        zOSDGIttQO+gRc7yEZ878AxWUNcYglhlY3EJfl8zLg3x8QfpuAePo0+uMQ7R
+        j0c/yVs1WnvYobUJ+EykDPITSzVEQ47frckzMRqPPoIDBRzcowwmpvJPMXar
+        ySTe1zTJs2L6L/+m5AdOgR1E5nTN6GS4j3vTNpzZTjpP2lisTAsNhsk8X87y
+        h3I5KyczxGxa6/ks13W21FhmuMzndVHURSm1zCqPEMiBtIcqtGDt/XOHDTfs
+        0PPVuM2tZ4jkjT70HW8mBYzRuCYkmznSsuN8FhpqlEQbzhiOFWwjhSe2TKyi
+        3+KLyJ8tRWQ17wIdhTiArDdG9K8wCa5yFJmWWGmwgSHqktE9H+O0cexsFWpP
+        1l5TnoxiLEJieoFYOu0rbCUqxXKG+jdF57tHCxFV1XuBV7iBS6ETb0qiY87j
+        7lk43AeLifqQrgyP6arBms2t0tuGmhKx29PeKXWNMgmnqtfgO5vRYqpZXWq/
+        hVP/AUu6Dm8Tz+At7ZSgg8UkTlNP9iiiiQkRX5B8Y2A8WpuWZfGISPFwxFe0
+        O4zsy3j06A1YcUpiLfnza/zL7cTdYrFIv+W8d3fzRbmo81QD6k3jaevSN77T
+        WqfX8dDhxsQXLH79Pp04YCENUKBL63me8lHsDI+h/8phK3kfzLAmN0Siv9yH
+        6c7YpbQSCebCimcv/gMAAP//fFZta9swEP4vg+5T61iyUzuGMsJYYV/GYN2X
+        jiIUS25E/YYsJwtj/32nk2S7WVMIQXeS7k33PGewNfZ2ZWOhMUluCL2h6UO8
+        LmhWkDxKNuTRJsEHg31yWp5LHkhekKSgeUTSfD4nZXvBHCXzMdlwBW3cjnUN
+        jy+5GbUNw8klYPl1VPEGzcQFTaI8yR5dzQ9Sf993psNMdP02wPtxV6tyBZhc
+        4Q3gBUsLRyXM/kOxWeeAIqme91B+GtvalLy9dwH9CNXz0ApxTvpfT8AvXAnW
+        w0tZrtDSciQmx8AXwGfR4u72wKRlKasHnhkh1MahlflW9M56rYAq5QzQAHnT
+        1KzqNFS6m5Rtx7gAh0YNiHmv3o0gAvGziUqCEcmF1LXdQt+zV1FNa3iF2kDv
+        M9cl823sBRgEL5Om4b+/CGUQA7aGwN5teULmGrZ+HfgJxa9thc8GFz9jDaBj
+        v40NNm0ZFIiDazARjkxGwpFghvcwOQ6LPLRsugOvt+d6731qNSf/nIam1/pr
+        jJugWjyzU7zI07BwHdTo2EuIYTWwoefNXLwlRG0DnaHYqoDVW6Ah12N/YDLp
+        gyotJ/nJcWnOL2f7ZYjPYEqjNMssJt9DnD8EqbzCmA/lbIiG8Y7pXy9Df9Z+
+        7/9vgOPxGIVttOeWq4Ts0iwhm10qRSxFupYiE1WW0dv0tlzvyKfhjsTxR3Fn
+        7Vwl2yt6D78F+EFy8IcFEAD8C1nxsTaRd9YDWP4+IZkI6QjgHwAAAP//AwC2
+        l5k4bwkAAA==
+    http_version: 
+  recorded_at: Wed, 25 Dec 2013 18:24:59 GMT
+recorded_with: VCR 2.8.0

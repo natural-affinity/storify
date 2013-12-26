@@ -1,85 +1,80 @@
 require 'spec_helper'
 
 describe Storify::Pager do
-  context "Page" do
-    it "should optionally accept a starting page" do
-      Storify::Pager.new(page: 10).page.should == 10
+  context ".page" do
+    it "optionally accepts a starting page" do
+      expect(Storify::Pager.new(page: 10).page).to eql 10
     end
 
-    it "should set the default starting page to 1" do
-      Storify::Pager.new.page.should == 1
+    it "sets the default starting page to 1" do
+      expect(Storify::Pager.new.page).to eql 1
     end
 
-    it "should limit the page to the API Min" do
-      pager = Storify::Pager.new(page: -1)
-      pager.page.should == Storify::Pager::MIN_PAGE
+    it "limits the page to the API minimum" do
+      expect(Storify::Pager.new(page: -1).page).to eql Storify::Pager::MIN_PAGE
     end
 
-    it "should optionally allow an artificial max page (inclusive)" do
-      pager = Storify::Pager.new(max: 20)
-      pager.max.should == 20
+    it "optionally allows an artificial max page (inclusive)" do
+      expect(Storify::Pager.new(max: 20).max).to eql 20
     end
 
-    it "should default the page max to unlimited (0)" do
-      pager = Storify::Pager.new
-      pager.max.should == 0
+    it "sets the default the page max to unlimited" do
+      expect(Storify::Pager.new.max).to eql 0
     end
 
-    it "should allow a page to be advanced (forward)" do
-      pager = Storify::Pager.new
-      pager.next.page.should == 2
+    it "allows a page to be advanced forward" do
+      expect(Storify::Pager.new.next.page).to eql 2
     end
 
-    it "should not allow a page to be advanced beyond (max + 1)" do
-      pager = Storify::Pager.new(max: 2)
-      pager.next.next.next.page.should == 3
+    it "does not allow a page to be advanced beyond max + 1" do
+      expect(Storify::Pager.new(max: 2).next.next.next.page).to eql 3
     end
 
-    it "should allow a page to be advanced (backward)" do
-      pager = Storify::Pager.new(page: 2)
-      pager.prev.prev.page.should == 1
+    it "allows a page to be advanced backward" do
+      expect(Storify::Pager.new(page: 2).prev.prev.page).to eql 1
     end
   end
 
-  context "Per Page" do
-    it "should optionally accept a per page option" do
-      Storify::Pager.new(per_page: 15).per_page.should == 15
+  context ".per_page" do
+    it "optionally accepts a per page option" do
+      expect(Storify::Pager.new(per_page: 15).per_page).to eql 15
     end
 
-    it "should set the default per_page to 20" do
-      Storify::Pager.new.per_page.should == 20
+    it "sets the default per_page to 20" do
+      expect(Storify::Pager.new.per_page).to eql 20
     end
 
-    it "should limit per_page to the API Max" do
-      # Constructor
-      pager = Storify::Pager.new(per_page: 100)
-      pager.per_page.should == Storify::Pager::MAX_PER_PAGE
+    it "limits per_page to the API maximum (constructor)" do
+      expect(Storify::Pager.new(per_page: 100).per_page).to eql Storify::Pager::MAX_PER_PAGE
+    end
 
-      # Setter
+    it "limits per_page to the API maximum (setter)" do
+      pager = Storify::Pager.new
       pager.per_page = 500
-      pager.per_page.should == Storify::Pager::MAX_PER_PAGE
+      expect(pager.per_page).to eql Storify::Pager::MAX_PER_PAGE
     end
   end
 
-  context "Utility" do
-    it "should provide access to pagnination as a parameter hash" do
+  context ".to_hash" do
+    it "hashifies pagination parameters" do
       pager = Storify::Pager.new(page: 13, per_page: 25).to_hash
-      pager[:page].should == 13
-      pager[:per_page].should == 25
+      expect(pager[:page]).to eql 13
+      expect(pager[:per_page]).to eql 25
     end
+  end
 
-    it "should know if there are pages left based on content array size" do
+  context ".has_pages?" do
+    it "knows if there are pages left based on content array size" do
       data = {'content' => {'stories' => ['s1', 's2', 's3']}}
       pager = Storify::Pager.new
-      pager.has_pages?(data['content']['stories']).should be_true
-      pager.has_pages?(data['content'][:invalid]).should be_false
-      pager.has_pages?([]).should be_false
+
+      expect(pager.has_pages?(data['content']['stories'])).to be_true
+      expect(pager.has_pages?(data['content'][:invalid])).to be_false
+      expect(pager.has_pages?([])).to be_false
     end
 
-    it "should have no pages left once on the final page" do
-      pager = Storify::Pager.new(max: 2)
-      pager.next.next.next
-      pager.has_pages?(['g']).should be_false
+    it "has no pages left once on the final page" do
+      expect(Storify::Pager.new(max: 2).next.next.next.has_pages?(['g'])).to be_false
     end
   end
 end

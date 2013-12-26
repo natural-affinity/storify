@@ -7,7 +7,7 @@ This is a Ruby interface to the Storify REST-API.
 Status
 ------
 * Work-in-progress (expect updates)
-* API calls are complete: Working on documentation and refactoring
+* Test Refactoring Completed via WebMock + VCR
 
 Prerequisites
 -------------
@@ -21,18 +21,13 @@ TODO
 * Rdoc/ri documentation
 * Support Sorting
 * Formatters for Story Content
-* De-couple specs from actual API (i.e. WebMock)
 
 
 Usage and documentation
 -----------------------
-To run the tests please ensure you have created a `.userkey.rb` file in the spec directory.
-See the `.userkey.rb.sample` file for details.
-
 Note: The Storify API currently requires a password to be entered for
 authentication. Please ensure you perform this securely (as you do not want it
 to appear in plaintext within your shell profile history or within your script).
-The included specs demonstrate masking a password from shell history.
 
 
 ### Setup
@@ -45,6 +40,11 @@ $ gem install storify
 Include the `storify` gem in your script:
 ```ruby
 require 'storify'
+```
+
+Run the tests:
+```bash
+storify$ rspec
 ```
 
 

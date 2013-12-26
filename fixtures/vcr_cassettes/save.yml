@@ -1,0 +1,462 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.storify.com/v1/stories/mock_username/no-embeds/save
+    body:
+      encoding: US-ASCII
+      string: story=%7B%22sid%22%3A%2252ad2369efd89b7129009d87%22%2C%22title%22%3A%22No%20embeds%22%2C%22slug%22%3A%22no-embeds%22%2C%22status%22%3A%22working%22%2C%22version%22%3A18%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%2Fno-embeds%22%2C%22shortlink%22%3A%22http%3A%2F%2Fsfy.co%2FjY4R%22%2C%22description%22%3A%22New%20Description%20%23%3CRandom%3A0x007fd343c3afc8%3E%22%2C%22thumbnail%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fdefault-thumb.gif%22%2C%22date%22%3A%7B%22created%22%3A%222013-12-15T03%3A35%3A05.697Z%22%2C%22modified%22%3A%222013-12-23T18%3A10%3A49.362Z%22%2C%22published%22%3A%222013-12-23T18%3A10%3A49.362Z%22%7D%2C%22private%22%3Afalse%2C%22not_indexed%22%3Afalse%2C%22is_spam%22%3Afalse%2C%22topics%22%3A%5B%5D%2C%22siteposts%22%3A%5B%5D%2C%22meta%22%3A%7B%22quoted%22%3A%5B%5D%2C%22hashtags%22%3A%5B%5D%2C%22created_with%22%3A%7B%22href%22%3A%22http%3A%2F%2Fstorify.com%22%2C%22appname%22%3A%22storify%22%2C%22name%22%3A%22storify%22%7D%7D%2C%22stats%22%3A%7B%22views%22%3A15%2C%22popularity%22%3A0%2C%22likes%22%3A0%2C%22embeds%22%3A%5B%7B%22clicks%22%3A0%2C%22views%22%3A15%2C%22href%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%2Fno-embeds%22%2C%22domain%22%3A%22storify.com%22%7D%5D%2C%22elements%22%3A%7B%22text%22%3A0%2C%22quote%22%3A0%2C%22image%22%3A0%2C%22video%22%3A0%2C%22link%22%3A0%2C%22other%22%3A0%7D%2C%22elementComments%22%3A0%2C%22comments%22%3A0%2C%22clicks%22%3A0%7D%2C%22modified%22%3Afalse%2C%22deleted%22%3Afalse%2C%22author%22%3A%7B%22_id%22%3A%2252a55317b169adf57700b0b8%22%2C%22username%22%3A%22mock_username%22%2C%22_access%22%3A0%2C%22name%22%3A%22RT%22%2C%22bio%22%3A%22Software%20Engineer%2C%20World%20Traveller%2C%20Foodie%22%2C%22location%22%3A%22Toronto%2C%20Canada%22%2C%22website%22%3A%22http%3A%2F%2Ft.co%2F4051z4MdbB%22%2C%22avatar%22%3A%22http%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F3492487927%2F2ee01cf324fc09fe70e943c55c57bfb0_reasonably_small.jpeg%22%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%22%2C%22settings%22%3A%7B%22comments%22%3A%22facebook%22%2C%22facebook_autoshare%22%3Atrue%2C%22facebook_quoteimg%22%3Atrue%2C%22facebook_post%22%3Atrue%2C%22twitter_post%22%3Atrue%2C%22ban_notify%22%3Afalse%2C%22options%22%3A%7B%22infinite_scroll%22%3Afalse%2C%22hide_stats%22%3Afalse%2C%22allow_embedding%22%3Atrue%2C%22comments%22%3Atrue%2C%22related_stories%22%3Atrue%2C%22ga%22%3Afalse%7D%2C%22notifications%22%3A%7B%22newsletter%22%3Atrue%2C%22digest%22%3Atrue%2C%22likes%22%3Atrue%2C%22comments%22%3Atrue%2C%22follower%22%3Atrue%2C%22quoted%22%3Atrue%2C%22friend_quoted%22%3Atrue%2C%22autoshare%22%3Atrue%2C%22element_comment%22%3Atrue%2C%22element_like%22%3Atrue%2C%22story_comment%22%3Atrue%2C%22story_like%22%3Atrue%7D%2C%22style%22%3A%7B%22fonts%22%3A%7B%22title%22%3A%22Georgia%2C%20Times%22%2C%22body%22%3A%22Helvetica%2C%20Arial%22%7D%2C%22colors%22%3A%7B%22text%22%3A%22%23666%22%2C%22link%22%3A%22%233676c4%22%2C%22background%22%3A%22%23fff%22%7D%2C%22typekit%22%3A%7B%7D%7D%7D%2C%22lang%22%3A%22en%22%2C%22stats%22%3A%7B%22views%22%3A0%2C%22subscriptions%22%3A0%2C%22subscribers%22%3A0%2C%22stories%22%3A2%2C%22embeds%22%3A0%7D%2C%22date%22%3A%7B%22updated%22%3A%222013-12-25T23%3A59%3A40.535Z%22%2C%22last_story%22%3A%222013-12-25T23%3A59%3A40.320Z%22%2C%22last_seen%22%3A%222013-12-24T05%3A27%3A18.218Z%22%2C%22created%22%3A%222013-12-09T05%3A20%3A23.837Z%22%7D%2C%22coverPhoto%22%3A%7B%22url%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fcover.jpg%22%2C%22width%22%3A958%2C%22height%22%3A200%7D%2C%22canFeatureStories%22%3Afalse%2C%22featuredStories%22%3A%5B%5D%2C%22paid_plan%22%3A%22free%22%2C%22email_verified%22%3Atrue%2C%22features_enabled%22%3A%7B%22custom_embed_style%22%3Afalse%2C%22private_stories%22%3Afalse%2C%22html_for_seo%22%3Afalse%2C%22no_advertising%22%3Afalse%2C%22business_options%22%3Afalse%2C%22headerless_embed%22%3Afalse%2C%22pdf%22%3Afalse%2C%22realtime_updates%22%3Afalse%2C%22storylock%22%3Afalse%2C%22maxEditors%22%3A0%7D%2C%22agency%22%3A%7B%22isAgency%22%3Afalse%2C%22agencyInfo%22%3A%7B%22maxCustomersNum%22%3A0%2C%22customers%22%3A%5B%5D%7D%2C%22isCustomer%22%3Afalse%2C%22customerInfo%22%3A%7B%22approved%22%3Afalse%2C%22removalApproved%22%3Afalse%2C%22agencyId%22%3Anull%2C%22agencyUsername%22%3Anull%2C%22approved_at%22%3Anull%2C%22paid_plan%22%3Anull%2C%22keys%22%3A%7B%22approve%22%3Anull%2C%22remove%22%3Anull%7D%7D%7D%2C%22is_spam%22%3Afalse%2C%22subscribers%22%3A%5B%5D%2C%22subscriptions%22%3A%5B%5D%2C%22identities%22%3A%5B%5D%7D%2C%22canEdit%22%3Atrue%2C%22comments%22%3A%5B%5D%2C%22elements%22%3A%5B%7B%22data%22%3A%7B%22text%22%3A%22Added%20new%20text%20item%22%7D%2C%22comments%22%3A%5B%5D%7D%5D%7D&username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '4736'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 26 Dec 2013 17:22:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d8eca495b7739be01df4a408a0c703f281388078559235; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      X-Varnish:
+      - '473481007'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api03
+      Cf-Ray:
+      - e2f74530475016a
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA4RUyW7bMBT8FUO92ha1WQuKAkV7ziHIpQkCgyKfLMaSqJJU
+        nCDQv/eRkuMFSQPoQI6GfNsM3zwmOwOd8Yo3TwvuFV4SUh5GmxwqnuVlGoQ5
+        ITnPUm/pGWEaQMqNXEBbAteI6WbYIdTJ1Qky1AwawYNUe9HtEHoGpYXsvCLI
+        l14PqqWN6PZIqY3pC9/XRipRva6ZbH1l4Kmnyr+4spbKXB1xdP/pT3yLBA6a
+        KdEbF8S7gcPi9wlZfPt+Szsu24K8EJJWPIojFtGKZT9sVfXQlh0Vzcfp9EPZ
+        COaLdudzqOjQmJU7sd6JygamBmzzmAJc2QaGJIhWQbgKkjsSFVFSkGS9ydN7
+        JLeSi0pcsMLNXZAWYVhE+TpKIstyEXV9TSOksF+6ji1tRJ4Szy56RRsNS5yB
+        2YqOw4s9OWNCb3VP2/e9kb1gOJuHR2yqMNBLbeZtC4baSv4O0hVisZrq2tDd
+        zJhr3B6EqS2zVlB92DQsgvZ9R1urlhlH7AoYx0kr2t71LOCAiyDBumQ/NFQJ
+        8+oVZOk1Yg/arWY5FA/YbpzJfkLPTn6a0IeiQkFQ0Z0ScpmPWCc00KIn5rw4
+        SBfHwAvaJFhODXKQNDWoOUmrTVyIlu7sz/H9ml+ynW/D3+xicyxiPJeGUQNY
+        QTdgzgbZu2sD557ttAnJearYlKN/gRIaQ5lDnDKIomCThkmABYMjZGnJAZI8
+        jxnPkxTNDtmmyom1wmtvB+Qq/dKnbg3a/+zB8I+5+WXA400VBVnJ07BihFZZ
+        ykgZliEmxnJqY6EOUVnUnBsINb8p4qCIyZqkzkCU8/+zsvvJk07J08S8n/bQ
+        osM3wQILVH1r7aPloBh8peNrzWIOxihRDtNT8zaez9S56qjok27Phj6Oj+4E
+        d/Mj4z8AAAD//wMAnbM+tYEFAAA=
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 17:22:41 GMT
+- request:
+    method: post
+    uri: https://api.storify.com/v1/stories/mock_username/no-embeds/publish
+    body:
+      encoding: US-ASCII
+      string: story=%7B%22sid%22%3A%2252ad2369efd89b7129009d87%22%2C%22title%22%3A%22No%20embeds%22%2C%22slug%22%3A%22no-embeds%22%2C%22status%22%3A%22working%22%2C%22version%22%3A18%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%2Fno-embeds%22%2C%22shortlink%22%3A%22http%3A%2F%2Fsfy.co%2FjY4R%22%2C%22description%22%3A%22New%20Description%20%23%3CRandom%3A0x007fd343c3afc8%3E%22%2C%22thumbnail%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fdefault-thumb.gif%22%2C%22date%22%3A%7B%22created%22%3A%222013-12-15T03%3A35%3A05.697Z%22%2C%22modified%22%3A%222013-12-23T18%3A10%3A49.362Z%22%2C%22published%22%3A%222013-12-23T18%3A10%3A49.362Z%22%7D%2C%22private%22%3Afalse%2C%22not_indexed%22%3Afalse%2C%22is_spam%22%3Afalse%2C%22topics%22%3A%5B%5D%2C%22siteposts%22%3A%5B%5D%2C%22meta%22%3A%7B%22quoted%22%3A%5B%5D%2C%22hashtags%22%3A%5B%5D%2C%22created_with%22%3A%7B%22href%22%3A%22http%3A%2F%2Fstorify.com%22%2C%22appname%22%3A%22storify%22%2C%22name%22%3A%22storify%22%7D%7D%2C%22stats%22%3A%7B%22views%22%3A15%2C%22popularity%22%3A0%2C%22likes%22%3A0%2C%22embeds%22%3A%5B%7B%22clicks%22%3A0%2C%22views%22%3A15%2C%22href%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%2Fno-embeds%22%2C%22domain%22%3A%22storify.com%22%7D%5D%2C%22elements%22%3A%7B%22text%22%3A0%2C%22quote%22%3A0%2C%22image%22%3A0%2C%22video%22%3A0%2C%22link%22%3A0%2C%22other%22%3A0%7D%2C%22elementComments%22%3A0%2C%22comments%22%3A0%2C%22clicks%22%3A0%7D%2C%22modified%22%3Afalse%2C%22deleted%22%3Afalse%2C%22author%22%3A%7B%22_id%22%3A%2252a55317b169adf57700b0b8%22%2C%22username%22%3A%22mock_username%22%2C%22_access%22%3A0%2C%22name%22%3A%22RT%22%2C%22bio%22%3A%22Software%20Engineer%2C%20World%20Traveller%2C%20Foodie%22%2C%22location%22%3A%22Toronto%2C%20Canada%22%2C%22website%22%3A%22http%3A%2F%2Ft.co%2F4051z4MdbB%22%2C%22avatar%22%3A%22http%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F3492487927%2F2ee01cf324fc09fe70e943c55c57bfb0_reasonably_small.jpeg%22%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%22%2C%22settings%22%3A%7B%22comments%22%3A%22facebook%22%2C%22facebook_autoshare%22%3Atrue%2C%22facebook_quoteimg%22%3Atrue%2C%22facebook_post%22%3Atrue%2C%22twitter_post%22%3Atrue%2C%22ban_notify%22%3Afalse%2C%22options%22%3A%7B%22infinite_scroll%22%3Afalse%2C%22hide_stats%22%3Afalse%2C%22allow_embedding%22%3Atrue%2C%22comments%22%3Atrue%2C%22related_stories%22%3Atrue%2C%22ga%22%3Afalse%7D%2C%22notifications%22%3A%7B%22newsletter%22%3Atrue%2C%22digest%22%3Atrue%2C%22likes%22%3Atrue%2C%22comments%22%3Atrue%2C%22follower%22%3Atrue%2C%22quoted%22%3Atrue%2C%22friend_quoted%22%3Atrue%2C%22autoshare%22%3Atrue%2C%22element_comment%22%3Atrue%2C%22element_like%22%3Atrue%2C%22story_comment%22%3Atrue%2C%22story_like%22%3Atrue%7D%2C%22style%22%3A%7B%22fonts%22%3A%7B%22title%22%3A%22Georgia%2C%20Times%22%2C%22body%22%3A%22Helvetica%2C%20Arial%22%7D%2C%22colors%22%3A%7B%22text%22%3A%22%23666%22%2C%22link%22%3A%22%233676c4%22%2C%22background%22%3A%22%23fff%22%7D%2C%22typekit%22%3A%7B%7D%7D%7D%2C%22lang%22%3A%22en%22%2C%22stats%22%3A%7B%22views%22%3A0%2C%22subscriptions%22%3A0%2C%22subscribers%22%3A0%2C%22stories%22%3A2%2C%22embeds%22%3A0%7D%2C%22date%22%3A%7B%22updated%22%3A%222013-12-25T23%3A59%3A40.535Z%22%2C%22last_story%22%3A%222013-12-25T23%3A59%3A40.320Z%22%2C%22last_seen%22%3A%222013-12-24T05%3A27%3A18.218Z%22%2C%22created%22%3A%222013-12-09T05%3A20%3A23.837Z%22%7D%2C%22coverPhoto%22%3A%7B%22url%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fcover.jpg%22%2C%22width%22%3A958%2C%22height%22%3A200%7D%2C%22canFeatureStories%22%3Afalse%2C%22featuredStories%22%3A%5B%5D%2C%22paid_plan%22%3A%22free%22%2C%22email_verified%22%3Atrue%2C%22features_enabled%22%3A%7B%22custom_embed_style%22%3Afalse%2C%22private_stories%22%3Afalse%2C%22html_for_seo%22%3Afalse%2C%22no_advertising%22%3Afalse%2C%22business_options%22%3Afalse%2C%22headerless_embed%22%3Afalse%2C%22pdf%22%3Afalse%2C%22realtime_updates%22%3Afalse%2C%22storylock%22%3Afalse%2C%22maxEditors%22%3A0%7D%2C%22agency%22%3A%7B%22isAgency%22%3Afalse%2C%22agencyInfo%22%3A%7B%22maxCustomersNum%22%3A0%2C%22customers%22%3A%5B%5D%7D%2C%22isCustomer%22%3Afalse%2C%22customerInfo%22%3A%7B%22approved%22%3Afalse%2C%22removalApproved%22%3Afalse%2C%22agencyId%22%3Anull%2C%22agencyUsername%22%3Anull%2C%22approved_at%22%3Anull%2C%22paid_plan%22%3Anull%2C%22keys%22%3A%7B%22approve%22%3Anull%2C%22remove%22%3Anull%7D%7D%7D%2C%22is_spam%22%3Afalse%2C%22subscribers%22%3A%5B%5D%2C%22subscriptions%22%3A%5B%5D%2C%22identities%22%3A%5B%5D%7D%2C%22canEdit%22%3Atrue%2C%22comments%22%3A%5B%5D%2C%22elements%22%3A%5B%7B%22data%22%3A%7B%22text%22%3A%22Added%20new%20text%20item%22%7D%2C%22comments%22%3A%5B%5D%7D%5D%7D&username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '4736'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 26 Dec 2013 17:22:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d7207a2d536155620c42dce3fbdfb86881388078559893; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      X-Varnish:
+      - '562287201'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Cf-Ray:
+      - e2f74572488016a
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3xTwY7aMBD9FeRegTgJARJVvbTnPaz20q5WyMQT4iWOXXsC
+        rFb5945DBAXR3maenmfmzTx/stK0CC2y4pN5JVnBskTIJF3mUMl1vl3FSc55
+        LtcrNmWosAGiPJkJ6C1IT5hvuh1BrZldIRTYeQJtt22Ur0ESeADnlWlZkfAp
+        s+C0aFS7J1KNaIso8micqj7mpdGRQ3i3wkU3RWvj8O7JQI/efy6eiSDBl05Z
+        HJqwJzhOflyRyZevz6KVRhf8xPmqkukiLVNRletvQVfd6W0rVPN4nEFGGSm9
+        iyRUomtwNryY71QVGguEsL7SAUVhhQmP01mczOLshadFmhU8my/z1S8iayNV
+        pW5YyfIlXhVJUiz4nOdZYF0X9x9aTzynDkP3SjQepnQF3KhWwim8HDHlN94K
+        fcnRWFXSdV7faKkKwRqPY6oBRVDyuzODkIDVwtcodiNj1Lg5KqwDs3ZQPVwa
+        iRDWtkIHv4w4YXdA35/d4kMta2zXCKfwgxXkkYOCI+FxNmWN2oMfQKqsya3n
+        BBoIyfcb7OyX4pXuQUfb+/ta/5z4oevIMUK114kHaf3bpfcwOMKJ/k88Pe9t
+        aKi02MHYWoIZorN5KTBYg6OIxF9m7P+2xngpSU3wkge2kRA+EO//AAAA//8D
+        ABkhp4G4AwAA
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 17:22:42 GMT
+- request:
+    method: get
+    uri: https://api.storify.com/v1/stories/mock_username/no-embeds?_token=mock__token&api_key=mock_apikey&page=1&per_page=20&username=mock_username
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 26 Dec 2013 17:22:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d75c829a88311a7a74c228b24d10391501388078560538; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache:
+      - MISS
+      X-Varnish:
+      - '562287207'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Cf-Ray:
+      - e2f745b5b060418
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3RU32+bMBD+VyL2SoKBEAKa9tJ1j33oIk1rNUUGH8GNsZl9
+        JK2q/O87E9q0VSfxYH/3ne+++8FzUBuNoDEonwMnRVAGWcJFkq4KaMS6qPI4
+        KRgrxDoPwgAlKiDKjZlBV4FwhDk17AjSZn6BkOPgCDwau5d6R9ABrJNGB2Vc
+        hEEPtuNK6j1RWsS+jCKHxsrmaVGbLrIIDz230bsnW2Pxg8tIjx5+L2+JIMDV
+        VvY4Bglu4Dj7fkFmX77eci1MV7JHxvJGpMu0TnlTr795Ve3QVZpL9Xk6/VAp
+        WUey20UCGj4onI8ei51sfGCO4ItXW6CTL2DC4nQeJ/M427C0TLOSZYtVkd8R
+        uTNCNvIdK1lt4rxMknLJFqzIPGuM6NqPNMZK/+WLZZbeBSfiWXkYozdcOQip
+        B7iVWsCj95ww6bau593rHU0va+rN/R8qqkTojcPp2gFyr+TvYEYhHmu5a5Hv
+        JsakcXuU2Hpma6H5tGgkgve95p2flgkn7ANwOp1nxfm3DhKOdIgz0mX6QXEr
+        8SkoWRgouQc3nqZxKO+p3NST/Rl94/nfhD4dKhoILvUloTHzE+kEBR3txJSX
+        ADPGQXikNYnDc4FGyGALdkrSzyYdZMd33nh6febKdNNrZK7fXV5EnN6OBtoB
+        /EArwDeNrLm+FhJfzHxAWgmf4PZla7MsjfMqXhVcNFmeM1axak0yBwd2qvxU
+        BQK3vK7BndOYjLcbwitJYoOfpsEjtzC71jupAWw4+2WsErON5QdQygM/DGUM
+        5KJMzae92xhLvxMTzq645oKT8QiVH7NLU9Av7ZJl8T8AAAD//4xXTY/jNgz9
+        K0HmupjYjj/nNi3QbQ8tFuj20sVCkC1qxhvFCvyxs2mR/16SkmxP0u70FtGU
+        RJF87zF/pb+q+gfqFGxijGn2ONXD/fiCeHPw661uDQjO67Dbp1WSlkWVFLsE
+        IIobvU9S3USVhiKCCnGdZU1W1LqOBHbrYDtZm7MYkHDM/ZcTEBn9P/4h1oFx
+        RP7iPlgKt9WygdraA3qEnwLrYYdnTFko0PyFuwVfc/OBoBeM+N5xhP6VrZad
+        QEgTUkITWKYzjqftdNthZgWynDVmdnnGfhUeVd6ET7cvgtteER3785cXuXUP
+        htHNuYDZ/CT9QRdmGGxSV26OokPoYZ+OhALfty2WaX6Dx+6/X6gtBbZsDcTj
+        v2IQnRKvjTdp9hgT/uxrM90fbPSu87WjMy5uTElnw5SureeAoHvvwfZPrXy3
+        +dgegRiktgqLs/0ZzFcYMS/vNo99Kw2Rc2ON7d1u5o3tXZ7n20AU27t9XuRN
+        SmfI5vDU26kjGN9prWn3eD7BoR1XUXz6fCG+NJIKuIVue8udCOVhqmfVe2Wp
+        offrUN1k4VPin6Bj00ld6dhaerIyJoUychi5T87fk6jgB9Ct3dKPUfaQFA9x
+        eZ/E5ewGR5bgbjIGi49CM/UUhlvfqmtU8THRQ7K/L/fFny7nOGd8eLaj5Zf0
+        bys670BeIFp4aRXJWpWViCJon54x/UlEuUHu/ckF9HvInodWiHO2k0yeZKvE
+        CStFXNEDcSQ/TuBdrzje7x4EEEuRHXlmwlCPDq3Ct6K/zOv9AtAA+fFohLY9
+        ZtquhgEhFV44tgNj3pvrCZdI/GKmknAISAW9oU9893Kr0vNvrIIZsfeF65Jl
+        N/cCCsFhthzlN9IrxgDlENm7a87MXMOj/x34iZe/dJrLhht/5Bxgx/42HZ1Q
+        BgPjgKaa4LLoozeEY3D+6LG4ahX70X6V5vHa7m+fW82t/5hF01v9NiHHYFqV
+        2RkOcB5WVwczX+xXjOHrmexK2mfEhhgva+p0DUYjRsxKJtwiidZjCw5IYSoA
+        GckU6grSooH9Ps6LJIupI9mhLGoFkFVV2qgqK3DwhzLXVbR1FIQezF5vaqZv
+        yd1//XnYhdh2dazSXO/jslZFgsItdVk0UZ3UCQbWVDQzkAj6TC/DNJJL/pDG
+        PCYXPExLpb7vxdyCfSpXLPxImzYoWxsybFBAj8Qcg536Bt6aaa/nV4xhHLFS
+        kxt//r4p1MzQywy7GgAv88x9uXzmvQoc5fwDAAD//wMAt9OmjpcNAAA=
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 17:22:42 GMT
+- request:
+    method: get
+    uri: https://api.storify.com/v1/stories/mock_username/no-embeds?_token=mock__token&api_key=mock_apikey&page=2&per_page=20&username=mock_username
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 26 Dec 2013 17:22:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d1f0ae838a21f081fd33bdeeba46798d31388078561039; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache:
+      - MISS
+      X-Varnish:
+      - '562287209'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Cf-Ray:
+      - e2f745e7b140418
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        T0LR5gsAAA==
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 17:22:43 GMT
+- request:
+    method: post
+    uri: https://api.storify.com/v1/stories/mock_username/no-embeds/save
+    body:
+      encoding: US-ASCII
+      string: story=%7B%22sid%22%3A%2252ad2369efd89b7129009d87%22%2C%22title%22%3A%22No%20embeds%22%2C%22slug%22%3A%22no-embeds%22%2C%22status%22%3A%22working%22%2C%22version%22%3A19%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%2Fno-embeds%22%2C%22shortlink%22%3A%22http%3A%2F%2Fsfy.co%2FjY4R%22%2C%22description%22%3A%22New%20Description%20%23%3CRandom%3A0x007fd343c3afc8%3E%22%2C%22thumbnail%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fdefault-thumb.gif%22%2C%22date%22%3A%7B%22created%22%3A%222013-12-15T03%3A35%3A05.697Z%22%2C%22modified%22%3A%222013-12-26T17%3A22%3A40.095Z%22%2C%22published%22%3A%222013-12-26T00%3A00%3A07.453Z%22%7D%2C%22private%22%3Afalse%2C%22not_indexed%22%3Afalse%2C%22is_spam%22%3Afalse%2C%22topics%22%3A%5B%5D%2C%22siteposts%22%3A%5B%5D%2C%22meta%22%3A%7B%22quoted%22%3A%5B%5D%2C%22hashtags%22%3A%5B%5D%2C%22created_with%22%3A%7B%22href%22%3A%22http%3A%2F%2Fstorify.com%22%2C%22appname%22%3A%22storify%22%2C%22name%22%3A%22storify%22%7D%7D%2C%22stats%22%3A%7B%22views%22%3A15%2C%22popularity%22%3A0%2C%22likes%22%3A0%2C%22embeds%22%3A%5B%7B%22clicks%22%3A0%2C%22views%22%3A15%2C%22href%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%2Fno-embeds%22%2C%22domain%22%3A%22storify.com%22%7D%5D%2C%22elements%22%3A%7B%22text%22%3A1%2C%22quote%22%3A0%2C%22image%22%3A0%2C%22video%22%3A0%2C%22link%22%3A0%2C%22other%22%3A0%7D%2C%22elementComments%22%3A0%2C%22comments%22%3A0%2C%22clicks%22%3A0%7D%2C%22modified%22%3Atrue%2C%22deleted%22%3Afalse%2C%22author%22%3A%7B%22_id%22%3A%2252a55317b169adf57700b0b8%22%2C%22username%22%3A%22mock_username%22%2C%22_access%22%3A0%2C%22name%22%3A%22RT%22%2C%22bio%22%3A%22Software%20Engineer%2C%20World%20Traveller%2C%20Foodie%22%2C%22location%22%3A%22Toronto%2C%20Canada%22%2C%22website%22%3A%22http%3A%2F%2Ft.co%2F4051z4MdbB%22%2C%22avatar%22%3A%22http%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F3492487927%2F2ee01cf324fc09fe70e943c55c57bfb0_reasonably_small.jpeg%22%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%22%2C%22settings%22%3A%7B%22comments%22%3A%22facebook%22%2C%22facebook_autoshare%22%3Atrue%2C%22facebook_quoteimg%22%3Atrue%2C%22facebook_post%22%3Atrue%2C%22twitter_post%22%3Atrue%2C%22ban_notify%22%3Afalse%2C%22options%22%3A%7B%22infinite_scroll%22%3Afalse%2C%22hide_stats%22%3Afalse%2C%22allow_embedding%22%3Atrue%2C%22comments%22%3Atrue%2C%22related_stories%22%3Atrue%2C%22ga%22%3Afalse%7D%2C%22notifications%22%3A%7B%22newsletter%22%3Atrue%2C%22digest%22%3Atrue%2C%22likes%22%3Atrue%2C%22comments%22%3Atrue%2C%22follower%22%3Atrue%2C%22quoted%22%3Atrue%2C%22friend_quoted%22%3Atrue%2C%22autoshare%22%3Atrue%2C%22element_comment%22%3Atrue%2C%22element_like%22%3Atrue%2C%22story_comment%22%3Atrue%2C%22story_like%22%3Atrue%7D%2C%22style%22%3A%7B%22fonts%22%3A%7B%22title%22%3A%22Georgia%2C%20Times%22%2C%22body%22%3A%22Helvetica%2C%20Arial%22%7D%2C%22colors%22%3A%7B%22text%22%3A%22%23666%22%2C%22link%22%3A%22%233676c4%22%2C%22background%22%3A%22%23fff%22%7D%2C%22typekit%22%3A%7B%7D%7D%7D%2C%22lang%22%3A%22en%22%2C%22stats%22%3A%7B%22views%22%3A0%2C%22subscriptions%22%3A0%2C%22subscribers%22%3A0%2C%22stories%22%3A2%2C%22embeds%22%3A0%7D%2C%22date%22%3A%7B%22updated%22%3A%222013-12-26T00%3A00%3A07.581Z%22%2C%22last_story%22%3A%222013-12-26T00%3A00%3A07.453Z%22%2C%22last_seen%22%3A%222013-12-24T05%3A27%3A18.218Z%22%2C%22created%22%3A%222013-12-09T05%3A20%3A23.837Z%22%7D%2C%22coverPhoto%22%3A%7B%22url%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fcover.jpg%22%2C%22width%22%3A958%2C%22height%22%3A200%7D%2C%22canFeatureStories%22%3Afalse%2C%22featuredStories%22%3A%5B%5D%2C%22paid_plan%22%3A%22free%22%2C%22email_verified%22%3Atrue%2C%22features_enabled%22%3A%7B%22custom_embed_style%22%3Afalse%2C%22private_stories%22%3Afalse%2C%22html_for_seo%22%3Afalse%2C%22no_advertising%22%3Afalse%2C%22business_options%22%3Afalse%2C%22headerless_embed%22%3Afalse%2C%22pdf%22%3Afalse%2C%22realtime_updates%22%3Afalse%2C%22storylock%22%3Afalse%2C%22maxEditors%22%3A0%7D%2C%22agency%22%3A%7B%22isAgency%22%3Afalse%2C%22agencyInfo%22%3A%7B%22maxCustomersNum%22%3A0%2C%22customers%22%3A%5B%5D%7D%2C%22isCustomer%22%3Afalse%2C%22customerInfo%22%3A%7B%22approved%22%3Afalse%2C%22removalApproved%22%3Afalse%2C%22agencyId%22%3Anull%2C%22agencyUsername%22%3Anull%2C%22approved_at%22%3Anull%2C%22paid_plan%22%3Anull%2C%22keys%22%3A%7B%22approve%22%3Anull%2C%22remove%22%3Anull%7D%7D%7D%2C%22is_spam%22%3Afalse%2C%22subscribers%22%3A%5B%5D%2C%22subscriptions%22%3A%5B%5D%2C%22identities%22%3A%5B%5D%7D%2C%22canEdit%22%3Atrue%2C%22comments%22%3A%5B%5D%2C%22elements%22%3A%5B%5D%7D&username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '4640'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 26 Dec 2013 17:22:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=df4c45e5d0e3205256d6e2c1d775446be1388078561687; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      X-Varnish:
+      - '473481029'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api03
+      Cf-Ray:
+      - e2f746255ac0418
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3xTTW/bMAz9K4F3TWLZzpeNYZft3EPRyxYUgWLRthrL0iQ6
+        SVH4v49SvSYpst3Ip8ePR1JvUak7hA6j4i1yUkRFtEy5SLNVDpXY5Pt1kuaM
+        5WKzjqYRSmyBKA96AmoPwhHm2r4mqNOzC4Qce0fgSduD7GqCjmCd1F1UpGwa
+        GbCKt7I7EKVBNEUcO9RWVq/zUqvYIrwYbuOblI22+Ckk0OOXn4tHIghwpZUG
+        Q5HoAU6THxdk8uXrI++EVgU7M7auRLbIyoxX5eabV9X0at9x2d5vx/T7Vpax
+        VHUsoOJ9i7MQMa9l5QtzBD+80gJZfoApS7JZks6S5RPLimxZsOV8la9/EVlp
+        ISt5w0pXT8m6SNNiweYsX3pWqOia/9MG4ll5DNUr3jqY0g5wJzsBZx85YtLt
+        nOHqw0dtZEm72T7TUCWC0Q5HVwFyr+R3r4MQjzXcNcjrkTFq3J0kNp7ZWKju
+        Do1EcGM6rvy1jDhhn4BheL8V53MdJZzISJakS5u+5Vbia1TQubTyAC5Y4zkU
+        Wxo37eTwjl5F/rOhu0dFB8Fld2kodD6QTmhB0Z8Y+xKgQx2EMwYjDChYGhuw
+        Y5P+NsmQitf+cfhI812rMRs9lzfOXxHD9WmMmxIUjle+CXmT8H12747/TJde
+        t8+Dzy/CAxv+AAAA//8DAMLsI1vbAwAA
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 17:22:43 GMT
+- request:
+    method: post
+    uri: https://api.storify.com/v1/stories/mock_username/no-embeds/publish
+    body:
+      encoding: US-ASCII
+      string: story=%7B%22sid%22%3A%2252ad2369efd89b7129009d87%22%2C%22title%22%3A%22No%20embeds%22%2C%22slug%22%3A%22no-embeds%22%2C%22status%22%3A%22working%22%2C%22version%22%3A19%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%2Fno-embeds%22%2C%22shortlink%22%3A%22http%3A%2F%2Fsfy.co%2FjY4R%22%2C%22description%22%3A%22New%20Description%20%23%3CRandom%3A0x007fd343c3afc8%3E%22%2C%22thumbnail%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fdefault-thumb.gif%22%2C%22date%22%3A%7B%22created%22%3A%222013-12-15T03%3A35%3A05.697Z%22%2C%22modified%22%3A%222013-12-26T17%3A22%3A40.095Z%22%2C%22published%22%3A%222013-12-26T00%3A00%3A07.453Z%22%7D%2C%22private%22%3Afalse%2C%22not_indexed%22%3Afalse%2C%22is_spam%22%3Afalse%2C%22topics%22%3A%5B%5D%2C%22siteposts%22%3A%5B%5D%2C%22meta%22%3A%7B%22quoted%22%3A%5B%5D%2C%22hashtags%22%3A%5B%5D%2C%22created_with%22%3A%7B%22href%22%3A%22http%3A%2F%2Fstorify.com%22%2C%22appname%22%3A%22storify%22%2C%22name%22%3A%22storify%22%7D%7D%2C%22stats%22%3A%7B%22views%22%3A15%2C%22popularity%22%3A0%2C%22likes%22%3A0%2C%22embeds%22%3A%5B%7B%22clicks%22%3A0%2C%22views%22%3A15%2C%22href%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%2Fno-embeds%22%2C%22domain%22%3A%22storify.com%22%7D%5D%2C%22elements%22%3A%7B%22text%22%3A1%2C%22quote%22%3A0%2C%22image%22%3A0%2C%22video%22%3A0%2C%22link%22%3A0%2C%22other%22%3A0%7D%2C%22elementComments%22%3A0%2C%22comments%22%3A0%2C%22clicks%22%3A0%7D%2C%22modified%22%3Atrue%2C%22deleted%22%3Afalse%2C%22author%22%3A%7B%22_id%22%3A%2252a55317b169adf57700b0b8%22%2C%22username%22%3A%22mock_username%22%2C%22_access%22%3A0%2C%22name%22%3A%22RT%22%2C%22bio%22%3A%22Software%20Engineer%2C%20World%20Traveller%2C%20Foodie%22%2C%22location%22%3A%22Toronto%2C%20Canada%22%2C%22website%22%3A%22http%3A%2F%2Ft.co%2F4051z4MdbB%22%2C%22avatar%22%3A%22http%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F3492487927%2F2ee01cf324fc09fe70e943c55c57bfb0_reasonably_small.jpeg%22%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%22%2C%22settings%22%3A%7B%22comments%22%3A%22facebook%22%2C%22facebook_autoshare%22%3Atrue%2C%22facebook_quoteimg%22%3Atrue%2C%22facebook_post%22%3Atrue%2C%22twitter_post%22%3Atrue%2C%22ban_notify%22%3Afalse%2C%22options%22%3A%7B%22infinite_scroll%22%3Afalse%2C%22hide_stats%22%3Afalse%2C%22allow_embedding%22%3Atrue%2C%22comments%22%3Atrue%2C%22related_stories%22%3Atrue%2C%22ga%22%3Afalse%7D%2C%22notifications%22%3A%7B%22newsletter%22%3Atrue%2C%22digest%22%3Atrue%2C%22likes%22%3Atrue%2C%22comments%22%3Atrue%2C%22follower%22%3Atrue%2C%22quoted%22%3Atrue%2C%22friend_quoted%22%3Atrue%2C%22autoshare%22%3Atrue%2C%22element_comment%22%3Atrue%2C%22element_like%22%3Atrue%2C%22story_comment%22%3Atrue%2C%22story_like%22%3Atrue%7D%2C%22style%22%3A%7B%22fonts%22%3A%7B%22title%22%3A%22Georgia%2C%20Times%22%2C%22body%22%3A%22Helvetica%2C%20Arial%22%7D%2C%22colors%22%3A%7B%22text%22%3A%22%23666%22%2C%22link%22%3A%22%233676c4%22%2C%22background%22%3A%22%23fff%22%7D%2C%22typekit%22%3A%7B%7D%7D%7D%2C%22lang%22%3A%22en%22%2C%22stats%22%3A%7B%22views%22%3A0%2C%22subscriptions%22%3A0%2C%22subscribers%22%3A0%2C%22stories%22%3A2%2C%22embeds%22%3A0%7D%2C%22date%22%3A%7B%22updated%22%3A%222013-12-26T00%3A00%3A07.581Z%22%2C%22last_story%22%3A%222013-12-26T00%3A00%3A07.453Z%22%2C%22last_seen%22%3A%222013-12-24T05%3A27%3A18.218Z%22%2C%22created%22%3A%222013-12-09T05%3A20%3A23.837Z%22%7D%2C%22coverPhoto%22%3A%7B%22url%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fcover.jpg%22%2C%22width%22%3A958%2C%22height%22%3A200%7D%2C%22canFeatureStories%22%3Afalse%2C%22featuredStories%22%3A%5B%5D%2C%22paid_plan%22%3A%22free%22%2C%22email_verified%22%3Atrue%2C%22features_enabled%22%3A%7B%22custom_embed_style%22%3Afalse%2C%22private_stories%22%3Afalse%2C%22html_for_seo%22%3Afalse%2C%22no_advertising%22%3Afalse%2C%22business_options%22%3Afalse%2C%22headerless_embed%22%3Afalse%2C%22pdf%22%3Afalse%2C%22realtime_updates%22%3Afalse%2C%22storylock%22%3Afalse%2C%22maxEditors%22%3A0%7D%2C%22agency%22%3A%7B%22isAgency%22%3Afalse%2C%22agencyInfo%22%3A%7B%22maxCustomersNum%22%3A0%2C%22customers%22%3A%5B%5D%7D%2C%22isCustomer%22%3Afalse%2C%22customerInfo%22%3A%7B%22approved%22%3Afalse%2C%22removalApproved%22%3Afalse%2C%22agencyId%22%3Anull%2C%22agencyUsername%22%3Anull%2C%22approved_at%22%3Anull%2C%22paid_plan%22%3Anull%2C%22keys%22%3A%7B%22approve%22%3Anull%2C%22remove%22%3Anull%7D%7D%7D%2C%22is_spam%22%3Afalse%2C%22subscribers%22%3A%5B%5D%2C%22subscriptions%22%3A%5B%5D%2C%22identities%22%3A%5B%5D%7D%2C%22canEdit%22%3Atrue%2C%22comments%22%3A%5B%5D%2C%22elements%22%3A%5B%5D%7D&username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '4640'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 26 Dec 2013 17:22:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d79ceed4ce9ef822ad4c0737711950b701388078562334; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      X-Varnish:
+      - '473481034'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api03
+      Cf-Ray:
+      - e2f746665950418
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3xSTW/iMBD9K8h7BZI4hI9otZfdcw9VL7tVhUw8IS5x7LUn
+        hQrx33dsIigV3dvM05t58/GOrDIdQoesPDKvJCtZwYXk+XwFtVyuNouMr9J0
+        JZcLNmaosAWiPJgR6A1IT5hv+y1BnZlcIRTYewJtv2mVb0AS+AbOK9Oxkmdj
+        ZsFp0apuR6QG0ZZJ4tE4Vb9PK6MTh/BqhUtumjbG4aeSSE9ef88eiSDBV05Z
+        jCLsAfajX1dk9O37o+ik0WV6SNNFLfNZXuWirpY/wl5NrzedUO39ceIaVaL0
+        NpFQi77FSayYblUdhAVCOF/lgKJwQp5m+STjk6x4SvMyL8q0mM5Xiz9E1kaq
+        Wt2w+PwpW5SclzM+nRWzwLoe7j+0E/GceovqtWg9jOkLuFadhEOoHDDl194K
+        fcnRWFXRd55f6KgKwRqPQ6oBRdjkb2/iIgFrhG9QbAfGsON6r7AJzMZBffdo
+        tISwthM6+GXACfsEnE5nt/jQyxrbt8IpfGdlSoZRsCc8K8asVTvwEaTOmtx6
+        TqCFkPy8wc5+KZ+PjL4tVHdVG8b6cuS7tvswRUUm2AWV08tFOw6OcMAoHu8W
+        I6XFFoY1JJgYnc1LgcEGXOjzsedHawyfkiSClzywjaSmPE1P/wAAAP//AwAW
+        O5YeuAMAAA==
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 17:22:44 GMT
+recorded_with: VCR 2.8.0

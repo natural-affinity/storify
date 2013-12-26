@@ -1,0 +1,238 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.storify.com/v1/users/mock_user$$$$/update
+    body:
+      encoding: US-ASCII
+      string: user=%7B%22username%22%3A%22mock_user%24%24%24%24%22%2C%22featuredStories%22%3A%5B%5D%2C%22subscribers%22%3A%5B%5D%2C%22subscriptions%22%3A%5B%5D%2C%22identities%22%3A%5B%5D%7D&username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '266'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 25 Dec 2013 18:52:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=db39071990b9f309f5d6390cad6d444f61387997566187; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      X-Varnish:
+      - '561593093'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Cf-Ray:
+      - e27baf459150418
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6pWSi0qyi9SsqpWKqksSFWyUsrLL4lPyy/NS1HSUcpNLS5O
+        TAeJhhanFimo5+YnZ8eXApkqQKCuAFSqAFFaq6OUnJ8CVGhiYFILAAAA//8D
+        AAHlLjxUAAAA
+    http_version: 
+  recorded_at: Wed, 25 Dec 2013 18:52:46 GMT
+- request:
+    method: post
+    uri: https://api.storify.com/v1/users/storify/update
+    body:
+      encoding: US-ASCII
+      string: user=%7B%22username%22%3A%22storify%22%2C%22featuredStories%22%3A%5B%5D%2C%22subscribers%22%3A%5B%5D%2C%22subscriptions%22%3A%5B%5D%2C%22identities%22%3A%5B%5D%7D&username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '252'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 25 Dec 2013 18:52:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '69'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d8a0d9d8e1e498f7e158a6601ce18717c1387997566548; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      Accept-Ranges:
+      - bytes
+      X-Varnish:
+      - '561593098'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api02
+      Cf-Ray:
+      - e27baf696470418
+    body:
+      encoding: UTF-8
+      string: '{"error":{"type":"unauthorized","message":"Unauthorized"},"code":401}'
+    http_version: 
+  recorded_at: Wed, 25 Dec 2013 18:52:46 GMT
+- request:
+    method: post
+    uri: https://api.storify.com/v1/users/mock_username/update
+    body:
+      encoding: US-ASCII
+      string: user=%7B%22_id%22%3A%2252a55317b169adf57700b0b8%22%2C%22username%22%3A%22mock_username%22%2C%22_access%22%3A0%2C%22name%22%3A%22RT%22%2C%22bio%22%3A%22Software%20Engineer%2C%20World%20Traveller%2C%20Foodie%22%2C%22location%22%3A%22%23%3CRandom%3A0x007fa155abba00%3E%22%2C%22website%22%3A%22http%3A%2F%2Ft.co%2F4051z4MdbB%22%2C%22avatar%22%3A%22http%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F3492487927%2F2ee01cf324fc09fe70e943c55c57bfb0_reasonably_small.jpeg%22%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%22%2C%22settings%22%3A%7B%22comments%22%3A%22facebook%22%2C%22facebook_autoshare%22%3Atrue%2C%22facebook_quoteimg%22%3Atrue%2C%22facebook_post%22%3Atrue%2C%22twitter_post%22%3Atrue%2C%22ban_notify%22%3Afalse%2C%22options%22%3A%7B%22infinite_scroll%22%3Afalse%2C%22hide_stats%22%3Afalse%2C%22allow_embedding%22%3Atrue%2C%22comments%22%3Atrue%2C%22related_stories%22%3Atrue%2C%22ga%22%3Afalse%7D%2C%22notifications%22%3A%7B%22newsletter%22%3Atrue%2C%22digest%22%3Atrue%2C%22likes%22%3Atrue%2C%22comments%22%3Atrue%2C%22follower%22%3Atrue%2C%22quoted%22%3Atrue%2C%22friend_quoted%22%3Atrue%2C%22autoshare%22%3Atrue%2C%22element_comment%22%3Atrue%2C%22element_like%22%3Atrue%2C%22story_comment%22%3Atrue%2C%22story_like%22%3Atrue%7D%2C%22style%22%3A%7B%22fonts%22%3A%7B%22title%22%3A%22Georgia%2C%20Times%22%2C%22body%22%3A%22Helvetica%2C%20Arial%22%7D%2C%22colors%22%3A%7B%22text%22%3A%22%23666%22%2C%22link%22%3A%22%233676c4%22%2C%22background%22%3A%22%23fff%22%7D%2C%22typekit%22%3A%7B%7D%7D%7D%2C%22lang%22%3A%22en%22%2C%22stats%22%3A%7B%22views%22%3A0%2C%22subscriptions%22%3A0%2C%22subscribers%22%3A0%2C%22stories%22%3A2%2C%22embeds%22%3A0%7D%2C%22date%22%3A%7B%22updated%22%3A%222013-12-24T05%3A27%3A18.391Z%22%2C%22last_story%22%3A%222013-12-23T18%3A13%3A28.148Z%22%2C%22last_seen%22%3A%222013-12-24T05%3A27%3A18.218Z%22%2C%22created%22%3A%222013-12-09T05%3A20%3A23.837Z%22%7D%2C%22coverPhoto%22%3A%7B%22url%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fcover.jpg%22%2C%22width%22%3A958%2C%22height%22%3A200%7D%2C%22canFeatureStories%22%3Afalse%2C%22featuredStories%22%3A%5B%5D%2C%22paid_plan%22%3A%22free%22%2C%22email_verified%22%3Atrue%2C%22features_enabled%22%3A%7B%22custom_embed_style%22%3Afalse%2C%22private_stories%22%3Afalse%2C%22html_for_seo%22%3Afalse%2C%22no_advertising%22%3Afalse%2C%22business_options%22%3Afalse%2C%22headerless_embed%22%3Afalse%2C%22pdf%22%3Afalse%2C%22realtime_updates%22%3Afalse%2C%22storylock%22%3Afalse%2C%22maxEditors%22%3A0%7D%2C%22agency%22%3A%7B%22isAgency%22%3Afalse%2C%22agencyInfo%22%3A%7B%22maxCustomersNum%22%3A0%2C%22customers%22%3A%5B%5D%7D%2C%22isCustomer%22%3Afalse%2C%22customerInfo%22%3A%7B%22approved%22%3Afalse%2C%22removalApproved%22%3Afalse%2C%22agencyId%22%3Anull%2C%22agencyUsername%22%3Anull%2C%22approved_at%22%3Anull%2C%22paid_plan%22%3Anull%2C%22keys%22%3A%7B%22approve%22%3Anull%2C%22remove%22%3Anull%7D%7D%7D%2C%22is_spam%22%3Afalse%2C%22subscribers%22%3A%5B%5D%2C%22subscriptions%22%3A%5B%5D%2C%22identities%22%3A%5B%7B%22service%22%3A%22twitter%22%2C%22username%22%3A%22mock_username%22%2C%22name%22%3A%22RT%22%2C%22date%22%3A%7B%22updated%22%3A%222013-12-09T05%3A20%3A24.477Z%22%2C%22created%22%3A%222013-12-09T05%3A20%3A24.477Z%22%7D%2C%22url%22%3A%22http%3A%2F%2Ftwitter.com%2Fmock_username%22%7D%2C%7B%22service%22%3A%22gravatar%22%2C%22avatar%22%3A%22http%3A%2F%2Fwww.gravatar.com%2Favatar%2F31b47319b4ed0ed45ed7df772646c5b1%3Fs%3D100%26d%3Dhttp%253A%252F%252Fstorify.com%252Fpublic%252Fimg%252Fdefault.avatar.png%22%7D%5D%7D&username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '3594'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 25 Dec 2013 18:53:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '87'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d43eda69645d9b2e8e2988b5d664b03891387997580534; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      Accept-Ranges:
+      - bytes
+      X-Varnish:
+      - '472865831'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api03
+      Cf-Ray:
+      - e27bb4e47fc016a
+    body:
+      encoding: UTF-8
+      string: '{"error":{"type":"unauthorized","message":"Reserved for Business accounts"},"code":401}'
+    http_version: 
+  recorded_at: Wed, 25 Dec 2013 18:53:00 GMT
+- request:
+    method: post
+    uri: https://api.storify.com/v1/users/mock_username/update
+    body:
+      encoding: US-ASCII
+      string: user=%7B%22_id%22%3A%2252a55317b169adf57700b0b8%22%2C%22username%22%3A%22mock_username%22%2C%22_access%22%3A0%2C%22name%22%3A%22RT%22%2C%22bio%22%3A%22Software%20Engineer%2C%20World%20Traveller%2C%20Foodie%22%2C%22location%22%3A%22This%20is%20a%20new%20location%22%2C%22website%22%3A%22http%3A%2F%2Ft.co%2F4051z4MdbB%22%2C%22avatar%22%3A%22http%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F3492487927%2F2ee01cf324fc09fe70e943c55c57bfb0_reasonably_small.jpeg%22%2C%22permalink%22%3A%22http%3A%2F%2Fstorify.com%2Fmock_username%22%2C%22settings%22%3A%7B%22comments%22%3A%22facebook%22%2C%22facebook_autoshare%22%3Atrue%2C%22facebook_quoteimg%22%3Atrue%2C%22facebook_post%22%3Atrue%2C%22twitter_post%22%3Atrue%2C%22ban_notify%22%3Afalse%2C%22options%22%3A%7B%22infinite_scroll%22%3Afalse%2C%22hide_stats%22%3Afalse%2C%22allow_embedding%22%3Atrue%2C%22comments%22%3Atrue%2C%22related_stories%22%3Atrue%2C%22ga%22%3Afalse%7D%2C%22notifications%22%3A%7B%22newsletter%22%3Atrue%2C%22digest%22%3Atrue%2C%22likes%22%3Atrue%2C%22comments%22%3Atrue%2C%22follower%22%3Atrue%2C%22quoted%22%3Atrue%2C%22friend_quoted%22%3Atrue%2C%22autoshare%22%3Atrue%2C%22element_comment%22%3Atrue%2C%22element_like%22%3Atrue%2C%22story_comment%22%3Atrue%2C%22story_like%22%3Atrue%7D%2C%22style%22%3A%7B%22fonts%22%3A%7B%22title%22%3A%22Georgia%2C%20Times%22%2C%22body%22%3A%22Helvetica%2C%20Arial%22%7D%2C%22colors%22%3A%7B%22text%22%3A%22%23666%22%2C%22link%22%3A%22%233676c4%22%2C%22background%22%3A%22%23fff%22%7D%2C%22typekit%22%3A%7B%7D%7D%7D%2C%22lang%22%3A%22en%22%2C%22stats%22%3A%7B%22views%22%3A0%2C%22subscriptions%22%3A0%2C%22subscribers%22%3A0%2C%22stories%22%3A2%2C%22embeds%22%3A0%7D%2C%22date%22%3A%7B%22updated%22%3A%222013-12-24T05%3A27%3A18.391Z%22%2C%22last_story%22%3A%222013-12-23T18%3A13%3A28.148Z%22%2C%22last_seen%22%3A%222013-12-24T05%3A27%3A18.218Z%22%2C%22created%22%3A%222013-12-09T05%3A20%3A23.837Z%22%7D%2C%22coverPhoto%22%3A%7B%22url%22%3A%22http%3A%2F%2Fstorify.com%2Fpublic%2Fimg%2Fcover.jpg%22%2C%22width%22%3A958%2C%22height%22%3A200%7D%2C%22canFeatureStories%22%3Afalse%2C%22featuredStories%22%3A%5B%5D%2C%22paid_plan%22%3A%22free%22%2C%22email_verified%22%3Atrue%2C%22features_enabled%22%3A%7B%22custom_embed_style%22%3Afalse%2C%22private_stories%22%3Afalse%2C%22html_for_seo%22%3Afalse%2C%22no_advertising%22%3Afalse%2C%22business_options%22%3Afalse%2C%22headerless_embed%22%3Afalse%2C%22pdf%22%3Afalse%2C%22realtime_updates%22%3Afalse%2C%22storylock%22%3Afalse%2C%22maxEditors%22%3A0%7D%2C%22agency%22%3A%7B%22isAgency%22%3Afalse%2C%22agencyInfo%22%3A%7B%22maxCustomersNum%22%3A0%2C%22customers%22%3A%5B%5D%7D%2C%22isCustomer%22%3Afalse%2C%22customerInfo%22%3A%7B%22approved%22%3Afalse%2C%22removalApproved%22%3Afalse%2C%22agencyId%22%3Anull%2C%22agencyUsername%22%3Anull%2C%22approved_at%22%3Anull%2C%22paid_plan%22%3Anull%2C%22keys%22%3A%7B%22approve%22%3Anull%2C%22remove%22%3Anull%7D%7D%7D%2C%22is_spam%22%3Afalse%2C%22subscribers%22%3A%5B%5D%2C%22subscriptions%22%3A%5B%5D%2C%22identities%22%3A%5B%7B%22service%22%3A%22twitter%22%2C%22username%22%3A%22mock_username%22%2C%22name%22%3A%22RT%22%2C%22date%22%3A%7B%22updated%22%3A%222013-12-09T05%3A20%3A24.477Z%22%2C%22created%22%3A%222013-12-09T05%3A20%3A24.477Z%22%7D%2C%22url%22%3A%22http%3A%2F%2Ftwitter.com%2Fmock_username%22%7D%2C%7B%22service%22%3A%22gravatar%22%2C%22avatar%22%3A%22http%3A%2F%2Fwww.gravatar.com%2Favatar%2F31b47319b4ed0ed45ed7df772646c5b1%3Fs%3D100%26d%3Dhttp%253A%252F%252Fstorify.com%252Fpublic%252Fimg%252Fdefault.avatar.png%22%7D%5D%7D&username=mock_username&api_key=mock_apikey&_token=mock__token
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '3556'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 26 Dec 2013 18:55:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '69'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d74a79f83bb9ecdba128e496384e06ca81388084141039; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.storify.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - public,max-age=60
+      Accept-Ranges:
+      - bytes
+      X-Varnish:
+      - '473534468'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Server:
+      - storify-api03
+      Cf-Ray:
+      - e2ffc997bb5016a
+    body:
+      encoding: UTF-8
+      string: '{"error":{"type":"unauthorized","message":"Unauthorized"},"code":401}'
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 18:55:42 GMT
+recorded_with: VCR 2.8.0
