@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'storify'
-  s.version     = '0.0.14'
+  s.version     = '0.0.15'
   s.date        = '2013-12-26'
   s.summary     = 'Storify API'
   s.description = 'Ruby Wrapper of Storify REST API -- work-in-progress'
@@ -19,5 +19,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '>=2.14.1'
   s.add_development_dependency 'webmock', '>=1.16.1'
   s.add_development_dependency 'vcr', '~>2.8'
-  s.add_development_dependency 'io-console', '>=0.4.2'
 end

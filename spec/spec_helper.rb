@@ -1,5 +1,4 @@
 require 'webmock/rspec'
-require 'io/console'
 require 'storify'
 require 'vcr'
 require 'uri'

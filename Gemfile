@@ -12,5 +12,4 @@ group :test, :development do
   gem 'rspec', '>=2.14.1'
   gem 'webmock', '>=1.16.1'
   gem 'vcr', '~>2.8'
-  gem 'io-console', '>=0.4.2'
 end
