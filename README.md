@@ -1,7 +1,7 @@
 Storify Ruby Gem
 ================
 [![Gem Version](https://badge.fury.io/rb/storify.png)](http://badge.fury.io/rb/storify)
-[![Build Status](https://api.travis-ci.org/natural-affinity/storify.png?branch=master)][travis]
+[![Build Status](https://api.travis-ci.org/natural-affinity/storify.png?branch=master)](https://travis-ci.org/natural-affinity/storify)
 
 This is a Ruby interface to the Storify REST-API.
 
