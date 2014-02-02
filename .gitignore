@@ -2,3 +2,4 @@
 *.log
 .userkey.rb
 test.rb
+coverage/

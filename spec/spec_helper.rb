@@ -1,4 +1,5 @@
 require 'webmock/rspec'
+require 'coveralls'
 require 'storify'
 require 'vcr'
 require 'uri'
@@ -11,6 +12,7 @@ ENV['STORIFY_PASSWORD'] = "mock_password"
 ENV['STORIFY_USERNAME'] = "rtejpar"
 ENV['STORIFY_APIKEY'] = "mock_apikey"
 
+Coveralls.wear!
 
 RSpec.configure do |config|
   config.before(:all) do

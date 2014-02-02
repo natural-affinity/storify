@@ -8,6 +8,7 @@ gem 'representable', '>=1.7.3'
 gem 'nokogiri', '>=1.6.0'
 
 group :test, :development do
+  gem 'coveralls', :require => false
   gem 'rake', '>=0.9.6'
   gem 'rspec', '>=2.14.1'
   gem 'webmock', '>=1.16.1'

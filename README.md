@@ -3,6 +3,7 @@ Storify Ruby Gem
 [![Gem Version](https://badge.fury.io/rb/storify.png)](http://badge.fury.io/rb/storify)
 [![Build Status](https://api.travis-ci.org/natural-affinity/storify.png?branch=master)](https://travis-ci.org/natural-affinity/storify)
 [![Code Climate](https://codeclimate.com/github/natural-affinity/storify.png)](https://codeclimate.com/github/natural-affinity/storify)
+[![Coverage Status](https://coveralls.io/repos/natural-affinity/storify/badge.png)](https://coveralls.io/r/natural-affinity/storify)
 
 This is a Ruby interface to the Storify REST-API.
 
