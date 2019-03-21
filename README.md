@@ -365,12 +365,12 @@ FAVORITE TWEETS
 
 Blog
 -----
-* [Storify Gem Part 1](http://rizwan-tejpar.tumblr.com/post/70662465451/storify-gem-part-1-it-started-with-a-tweet)
-* [Storify Gem Part 2](http://rizwan-tejpar.tumblr.com/post/70663357806/storify-gem-part-2-minimum-viable-product)
-* [Storify Gem Part 3](http://rizwan-tejpar.tumblr.com/post/70664000709/storify-gem-part-3-technology-choices)
-* [Storify Gem Part 4](http://rizwan-tejpar.tumblr.com/post/70664537819/storify-gem-part-4-enhanced-domain-modeling)
-* [Storify Gem Part 5](http://rizwan-tejpar.tumblr.com/post/70664853704/storify-gem-part-5-storify-asynchronous-api-pitfalls)
-* [Storify Gem Part 6](http://rizwan-tejpar.tumblr.com/post/70665144606/storify-gem-part-6-aggressive-refactoring)
+* [Storify Gem Part 1](http://natural-affinity.tumblr.com/post/70662465451/storify-gem-part-1-it-started-with-a-tweet)
+* [Storify Gem Part 2](http://natural-affinity.tumblr.com/post/70663357806/storify-gem-part-2-minimum-viable-product)
+* [Storify Gem Part 3](http://natural-affinity.tumblr.com/post/70664000709/storify-gem-part-3-technology-choices)
+* [Storify Gem Part 4](http://natural-affinity.tumblr.com/post/70664537819/storify-gem-part-4-enhanced-domain-modeling)
+* [Storify Gem Part 5](http://natural-affinity.tumblr.com/post/70664853704/storify-gem-part-5-storify-asynchronous-api)
+* [Storify Gem Part 6](http://natural-affinity.tumblr.com/post/70665144606/storify-gem-part-6-aggressive-refactoring)
 
 
 Special Thanks
